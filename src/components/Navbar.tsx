@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import logo from '@/assets/logo.png'
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -18,41 +20,51 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <div className="navbar shadow-md sticky top-0 z-50 px-4 sm:px-8 lg:px-20 xl:px-56 bg-white">
-      
+    <div className="navbar bg-white shadow-md sticky top-0 z-50 px-4 sm:px-8 lg:px-20 xl:px-56">
+
       {/* LEFT: Logo */}
       <div className="navbar-start">
-        <Link href="/" className="btn btn-ghost text-xl text-black">
-          MyLogo
+        <Link href="/" className=" text-xl text-black">
+        <Image src={logo} alt='Logo'/>
         </Link>
       </div>
 
-      {/* RIGHT: Mobile Menu Button */}
+      {/* RIGHT: Mobile Menu */}
       <div className="navbar-end lg:hidden">
+           <button className="btn btn-sm btn-outline text-black mr-5">
+              Click
+            </button>
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost text-black hover:text-white">
+          <label
+            tabIndex={0}
+            className=" text-black flex items-center gap-2 cursor-pointer"
+          >
             ☰
           </label>
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow rounded-box w-56"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-3 shadow bg-white rounded-box w-56"
           >
             {menuItems.map((item, index) => (
               <li key={index}>
                 {item.children ? (
                   <details>
-                    <summary>{item.label}</summary>
+                    <summary className="text-black">{item.label}</summary>
                     <ul>
                       {item.children.map((child, i) => (
                         <li key={i}>
-                          <Link href={child.link}>{child.label}</Link>
+                          <Link className="text-black" href={child.link}>
+                            {child.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </details>
                 ) : (
-                  <Link href={item.link}>{item.label}</Link>
+                  <Link className="text-black" href={item.link}>
+                    {item.label}
+                  </Link>
                 )}
               </li>
             ))}
@@ -62,28 +74,39 @@ const Navbar = () => {
 
       {/* DESKTOP MENU */}
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal gap-2">
           {menuItems.map((item, index) => (
             <li key={index}>
               {item.children ? (
                 <details>
                   <summary className="text-black">{item.label}</summary>
-                  <ul className="p-2 rounded-box shadow">
+                  <ul className="p-2 bg-white rounded-box shadow z-50">
                     {item.children.map((child, i) => (
                       <li key={i}>
-                        <Link className="text-black" href={child.link}>{child.label}</Link>
+                        <Link className="text-black" href={child.link}>
+                          {child.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </details>
               ) : (
-                <Link className="text-black" href={item.link}>{item.label}</Link>
+                <Link className="text-black" href={item.link}>
+                  {item.label}
+                </Link>
               )}
             </li>
           ))}
+
+          {/* Desktop CTA Button */}
+          <li>
+            <button className="btn btn-sm btn-outline text-black">
+              Click
+            </button>
+          </li>
         </ul>
       </div>
-      <p className="text-black">asdklfj</p>
+
     </div>
   );
 };
