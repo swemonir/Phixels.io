@@ -1,11 +1,11 @@
 import Image from "next/image";
-import fiver from "@/assets/fiver.png";
-import shortLogo from "@/assets/short-logo.png";
+import fiver from "@/assets/fiverr.svg";
+import shortLogo from "@/assets/short-logo.svg";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdWifiCalling3 } from "react-icons/md";
-import gmail from "@/assets/gmail.png";
-import whatsapp from "@/assets/whatsapp.png";
-import teams from "@/assets/teams.png";
+import gmail from "@/assets/gmail.svg";
+import whatsapp from "@/assets/whatsapp.svg";
+import teams from "@/assets/teams.svg";
 
 const TopBar = () => {
   return (
@@ -34,7 +34,9 @@ const TopBar = () => {
           <p className="text-white text-sm">+8801723289090</p>
         </div>
 
-        <p className="hidden lg:block text-[#79BBEB] text-sm">We answer our phones!</p>
+        <p className="hidden lg:block text-[#79BBEB] text-sm">
+          We answer our phones!
+        </p>
       </div>
 
       {/* Right: logo & contacts */}
@@ -49,17 +51,10 @@ const TopBar = () => {
             className="mr-2"
           />
 
-          <Image
-            src={shortLogo}
-            alt="logo"
-            height={30}
-            width={30}
-          />
+          <Image src={shortLogo} alt="logo" height={30} width={30} />
 
           <div className="bg-[#ED1F2430] border-r-2 border-red-500 -ml-2 px-1">
-            <p className="text-white text-xs whitespace-nowrap">
-              Message Me
-            </p>
+            <p className="text-white text-xs whitespace-nowrap">Message Me</p>
           </div>
         </div>
 

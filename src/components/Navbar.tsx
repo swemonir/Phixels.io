@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from '@/assets/logo.png'
+import logo from "@/assets/logo.svg";
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -21,19 +21,18 @@ const menuItems = [
 const Navbar = () => {
   return (
     <div className="navbar bg-white shadow-md sticky top-0 z-50 px-4 sm:px-8 lg:px-20 xl:px-56">
-
       {/* LEFT: Logo */}
       <div className="navbar-start">
         <Link href="/" className=" text-xl text-black">
-        <Image src={logo} alt='Logo'/>
+          <Image src={logo} alt="Logo" />
         </Link>
       </div>
 
       {/* RIGHT: Mobile Menu */}
       <div className="navbar-end lg:hidden">
-           <button className="btn btn-sm btn-outline text-black mr-5">
-              Click
-            </button>
+        <button className="btn btn-sm btn-outline text-black mr-5">
+          Click
+        </button>
         <div className="dropdown dropdown-end">
           <label
             tabIndex={0}
@@ -100,13 +99,10 @@ const Navbar = () => {
 
           {/* Desktop CTA Button */}
           <li>
-            <button className="btn btn-sm btn-outline text-black">
-              Click
-            </button>
+            <button className="btn btn-sm btn-outline text-black">Click</button>
           </li>
         </ul>
       </div>
-
     </div>
   );
 };
