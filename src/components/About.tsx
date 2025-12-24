@@ -1,12 +1,12 @@
 import Image from "next/image";
-import React from "react";
 import aboutImage from "@/assets/we-are-phixels.svg";
 import { IoArrowForward } from "react-icons/io5";
 
 const About = () => {
   return (
-    <div className="sm:px-8 lg:px-20 xl:px-56 xl:mt-12 lg:mt-8 mt-4 lg:flex gap-12">
-      <Image src={aboutImage} alt="about" />
+    <div className="sm:px-8 lg:px-20 px-4 xl:px-56 xl:py-12 lg:py-8 py-4 lg:flex gap-12 bg-black">
+        <Image src={aboutImage} alt="about" />
+
       <div className="mt-4">
         <p className="text-5xl text-center lg:text-left font-semibold">
           We are <span className="font-bold text-[#ED1F24]">Phixels</span>
