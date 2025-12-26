@@ -3,6 +3,7 @@ import smartEcomarch from "@/assets/project/smart-ecomarch-ai.png";
 import tradingDashboard from "@/assets/project/trading-dashboard.png";
 import workflowapp from "@/assets/project/workforce-app.png";
 import goverment from "@/assets/project/goverment.png";
+import freeconsealtan from "@/assets/project/FreeConsultation.png";
 import Image from "next/image";
 
 const Project = () => {
@@ -126,6 +127,22 @@ const Project = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+
+      {/* Free Consultation */}
+      <div className="mt-16 md:flex items-center  gap-8 p-8 ">
+
+        <Image src={freeconsealtan} alt="Free Consultation" className="" />
+        <div className="p-8 rounded-3xl">
+          <h2 className="text-2xl font-bold text-black">Book a Free Consultation With Us</h2>
+          <p className="mt-2 text-black">
+          We help bring ideas to life by building smart, future-ready digital solutions that move businesses forward.
+          </p>
+          <button className="mt-4 bg-[#ED1F24] text-white px-5 py-2 rounded-full">
+            Schedule Now
+          </button>
         </div>
       </div>
     </div>
