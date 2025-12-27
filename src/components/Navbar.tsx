@@ -20,30 +20,30 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-white shadow-md sticky top-0 z-50 px-4 sm:px-8 lg:px-20 xl:px-56">
+    <div className="navbar bg-white shadow-md sticky top-14 z-40 px-4 sm:px-8 lg:px-20 xl:px-56">
       {/* LEFT: Logo */}
-      <div className="navbar-start">
-        <Link href="/" className=" text-xl text-black">
-          <Image src={logo} alt="Logo" />
+      <div className="navbar-start w-auto mr-auto">
+        <Link href="/" className="flex items-center">
+          <Image src={logo} alt="Logo" className="h-8 w-auto sm:h-10" />
         </Link>
       </div>
 
-      {/* RIGHT: Mobile Menu */}
-      <div className="navbar-end lg:hidden">
-        <button className="btn btn-sm btn-outline text-black mr-5">
-          Click
+      {/* RIGHT: Mobile Menu (Visible on small screens) */}
+      <div className="navbar-end lg:hidden flex w-auto">
+        <button className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 mr-2 text-xs">
+          Get Free Quote
         </button>
         <div className="dropdown dropdown-end">
           <label
             tabIndex={0}
-            className=" text-black flex items-center gap-2 cursor-pointer"
+            className="btn btn-ghost btn-circle text-black"
           >
-            ☰
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
           </label>
 
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-50 p-3 shadow bg-white rounded-box w-56"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-white rounded-box w-52"
           >
             {menuItems.map((item, index) => (
               <li key={index}>
@@ -71,18 +71,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* DESKTOP MENU */}
-      <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal gap-2">
+      {/* CENTER & RIGHT: Desktop Menu (Hidden on small screens) */}
+      <div className="navbar-end hidden lg:flex w-full">
+        <ul className="menu menu-horizontal gap-6 px-1 text-base font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
               {item.children ? (
                 <details>
-                  <summary className="text-black">{item.label}</summary>
-                  <ul className="p-2 bg-white rounded-box shadow z-50">
+                  <summary className="text-black hover:text-[#FF0000] transition-colors">{item.label}</summary>
+                  <ul className="p-2 bg-white rounded-box shadow-lg w-48">
                     {item.children.map((child, i) => (
                       <li key={i}>
-                        <Link className="text-black" href={child.link}>
+                        <Link className="text-black hover:text-[#FF0000]" href={child.link}>
                           {child.label}
                         </Link>
                       </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
                   </ul>
                 </details>
               ) : (
-                <Link className="text-black" href={item.link}>
+                <Link className="text-black hover:text-[#FF0000] transition-colors" href={item.link}>
                   {item.label}
                 </Link>
               )}
@@ -99,7 +99,9 @@ const Navbar = () => {
 
           {/* Desktop CTA Button */}
           <li>
-            <button className="btn btn-sm btn-outline text-black">Click</button>
+            <Link href="/quote" className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md">
+              Get Free Quote
+            </Link>
           </li>
         </ul>
       </div>

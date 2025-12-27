@@ -5,6 +5,11 @@ import Navbar from "@/components/Navbar";
 import Project from "@/components/Project";
 import Services from "@/components/Services";
 import TopBar from "@/components/TopBar";
+import Industries from "@/components/Industries";
+import Testimonials from "@/components/Testimonials";
+import Technologies from "@/components/Technologies";
+import Blog from "@/components/Blog";
+import Footer from "@/components/Footer";
 
 const page = () => {
   return (
@@ -14,8 +19,13 @@ const page = () => {
       <Hero />
       <About />
       <AboutCard />
-      <Services/>
-      <Project/>
+      <Services />
+      <Project />
+      <Industries />
+      <Testimonials />
+      <Technologies />
+      <Blog />
+      <Footer />
     </div>
   );
 };

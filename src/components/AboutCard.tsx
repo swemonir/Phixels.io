@@ -1,22 +1,18 @@
+const StatItem = ({ count, label }: { count: string; label: string }) => (
+    <div className="flex flex-col items-center justify-center p-6 border border-gray-700 rounded-2xl bg-[#131120] text-center h-full w-full">
+        <p className="text-3xl sm:text-4xl font-bold text-white mb-2">{count}</p>
+        <p className="text-xs sm:text-sm text-gray-400">{label}</p>
+    </div>
+);
 
 const AboutCard = () => {
     return (
-       <div className="sm:px-8 lg:px-20 px-4 xl:px-56 lg:flex gap-6 bg-black pb-5 justify-between items-center">
-            <div className="border-t-2 border-x-2 border-white rounded-2xl py-4 px-24">
-                <p className="text-4xl font-bold text-center">9+</p>
-                <p className="text-sm text-center mt-2 whitespace-nowrap">Years of experience</p>
-            </div>
-            <div className="border-t-2 border-x-2 border-white rounded-2xl py-4 px-24">
-                <p className="text-4xl font-bold text-center">100+</p>
-                <p className="text-sm text-center mt-2 whitespace-nowrap">Projects Successfully Completede</p>
-            </div>
-            <div className="border-t-2 border-x-2 border-white rounded-2xl py-4 px-24">
-                <p className="text-4xl font-bold text-center">1.5k+</p>
-                <p className="text-sm text-center mt-2 whitespace-nowrap">Users Trust Our Clients' Platforms </p>
-            </div>
-            <div className="border-t-2 border-x-2 border-white rounded-2xl py-4 px-24">
-                <p className="text-4xl font-bold text-center">$10M+</p>
-                <p className="text-sm text-center mt-2 whitespace-nowrap">Secured by Our Clients</p>
+        <div className="bg-black text-white px-4 sm:px-8 lg:px-20 xl:px-56 pb-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <StatItem count="9+" label="Years of Experience" />
+                <StatItem count="100+" label="Projects Completed" />
+                <StatItem count="1.5k+" label="Client Trust" />
+                <StatItem count="$10M+" label="Client Value" />
             </div>
         </div>
     );

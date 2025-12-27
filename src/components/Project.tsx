@@ -6,143 +6,91 @@ import goverment from "@/assets/project/goverment.png";
 import freeconsealtan from "@/assets/project/FreeConsultation.png";
 import Image from "next/image";
 
+const ProjectCard = ({ image, title, description, caseStudy = false }: { image: any; title: string; description: string; caseStudy?: boolean }) => (
+  <div className="relative mb-12 lg:mb-32 group">
+    <div className="overflow-hidden rounded-2xl shadow-lg bg-gray-100">
+      <Image
+        src={image}
+        alt={title}
+        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+
+    {/* Info Card - Stacked on Mobile, Floating on Desktop */}
+    <div className="mt-6 lg:mt-0 lg:absolute lg:-bottom-20 lg:left-1/2 lg:-translate-x-1/2 w-full lg:w-[90%] bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl border border-white/20 z-10">
+      <h3 className="text-2xl font-bold text-black">{title}</h3>
+      <p className="text-gray-600 mt-3 text-sm sm:text-base leading-relaxed">
+        {description}
+      </p>
+      <button className="mt-6 bg-[#ED1F24] hover:bg-red-700 transition-colors text-white px-6 py-2 rounded-full text-sm font-medium">
+        View Case Study
+      </button>
+    </div>
+  </div>
+);
+
 const Project = () => {
   return (
-    <div className="sm:px-8 lg:px-20 px-4 xl:px-56 xl:py-12 lg:py-8 py-4  gap-12 bg-white">
-      <div className="md:flex items-center justify-between">
-        <p className="text-black text-4xl font-bold">
+    <div className="bg-white px-4 sm:px-8 lg:px-20 xl:px-56 py-12 lg:py-20">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <h2 className="text-3xl sm:text-4xl text-black font-bold text-center md:text-left">
           We Work with Global Businesses
-        </p>
-        <div className="flex items-center gap-4 mt-2">
-          <button className="bg-white border border-[#ED1F24] text-[#ED1F24] px-4 py-2 rounded-md text-xs md:text-base">
+        </h2>
+        <div className="flex items-center gap-4">
+          <button className="bg-white border border-[#ED1F24] text-[#ED1F24] px-5 py-2 rounded-md text-sm sm:text-base font-medium hover:bg-red-50 transition-colors">
             View All Case Studies
           </button>
-          <button className="bg-[#ED1F24] border border-[#ED1F24] text-white px-4 py-2 rounded-md text-xs md:text-base">
+          <button className="bg-[#ED1F24] border border-[#ED1F24] text-white px-5 py-2 rounded-md text-sm sm:text-base font-medium hover:bg-red-700 transition-colors">
             View Portfolio
           </button>
         </div>
       </div>
 
-      {/* discribtion */}
-      <p className="text-black mt-4 font-normal text-lg">
+      <p className="text-gray-700 text-lg max-w-3xl mb-16 text-center md:text-left">
         Helping organizations create sustainable, cost-efficient, and
         revenue-driven digital solutions through cutting-edge technology.
       </p>
 
-      {/* projects */}
-
-      <div className="mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
-          {/* Project 1 */}
-          <div className=" p-6 rounded-lg relative mb-52 z-0">
-            <Image
-              src={smartEcomarch}
-              alt="Project 1"
-              className="w-full z-10"
-            />
-
-            {/* GLASS CARD */}
-            <div className="absolute -bottom-44 left-1/2 -translate-x-1/2 w-[85%] p-8 rounded-3xl backdrop-blur-xs shadow-2xl border border-white/30 z-20">
-              <p className="text-xl font-bold text-black">SmartCart AI</p>
-
-              <p className="text-gray-700 mt-2 text-sm leading-relaxed">
-                SmartCart AI is a modern and intelligent e-commerce landing page
-                concept designed to showcase an innovative shopping platform
-                powered by artificial intelligence. The goal of this design was
-                to create a clean, conversion-focused, and user-friendly layout
-                that instantly builds trust and encourages visitors to explore
-                more.
-              </p>
-
-              <button className="mt-4 bg-[#ED1F24] border border-[#ED1F24] text-white px-5 py-2 rounded-full">
-                View Case Study
-              </button>
-            </div>
-          </div>
-          {/* Project 2 */}
-          <div className=" p-6 rounded-lg relative mb-52 z-0">
-            <Image src={workflowapp} alt="Project 1" className="w-full z-10" />
-
-            {/* GLASS CARD */}
-            <div className="absolute -bottom-44 left-1/2 -translate-x-1/2 w-[85%] p-8 rounded-3xl backdrop-blur-xs shadow-2xl border border-white/30 z-20">
-              <p className="text-xl font-bold text-black">
-                Workforce Management
-              </p>
-
-              <p className="text-gray-700 mt-2 text-sm leading-relaxed">
-                A modern and fully responsive Workforce Management Web App
-                Dashboard designed and developed using the MERN Stack (MongoDB,
-                Express, React, Node.js).
-              </p>
-
-              <button className="mt-4 bg-[#ED1F24] border border-[#ED1F24] text-white px-5 py-2 rounded-full">
-                View Case Study
-              </button>
-            </div>
-          </div>
-          {/* Project 3 */}
-          <div className=" p-6 rounded-lg relative mb-52 z-0">
-            <Image
-              src={tradingDashboard}
-              alt="Project 1"
-              className="w-full z-10"
-            />
-
-            {/* GLASS CARD */}
-            <div className="absolute -bottom-44 left-1/2 -translate-x-1/2 w-[85%] p-8 rounded-3xl backdrop-blur-xs shadow-2xl border border-white/30 z-20">
-              <p className="text-xl font-bold text-black">Trading Dashboard</p>
-
-              <p className="text-gray-700 mt-2 text-sm leading-relaxed">
-                The Trading Dashboard UI Kit is a clean, minimal, and
-                high-performing solution crafted for modern trading platforms.
-                It includes 80+ fully auto-layout screens, ensuring smooth
-                scalability and consistency across devices.encourages visitors
-                to explore more. 
-              </p>
-
-              <button className="mt-4 bg-[#ED1F24] border border-[#ED1F24] text-white px-5 py-2 rounded-full">
-                View Case Study
-              </button>
-            </div>
-          </div>
-          {/* Project 4 */}
-          <div className=" p-6 rounded-lg relative mb-52 z-0">
-            <Image src={goverment} alt="Project 1" className="w-full z-10" />
-
-            {/* GLASS CARD */}
-            <div className="absolute -bottom-44 left-1/2 -translate-x-1/2 w-[85%] p-8 rounded-3xl backdrop-blur-xs shadow-2xl border border-white/30 z-20">
-              <p className="text-xl font-bold text-black">
-                Procurement Platform
-              </p>
-
-              <p className="text-gray-700 mt-2 text-sm leading-relaxed">
-                Procurement | Government Tenders | OEM Supply Solutions This
-                project showcases a fully responsive web and mobile platform for
-                managing government tenders, procurement processes, and OEM
-                supply solutions.
-              </p>
-
-              <button className="mt-4 bg-[#ED1F24] border border-[#ED1F24] text-white px-5 py-2 rounded-full">
-                View Case Study
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-x-12 lg:gap-y-32">
+        <ProjectCard
+          image={smartEcomarch}
+          title="SmartCart AI"
+          description="SmartCart AI is a modern and intelligent e-commerce landing page concept designed to showcase an innovative shopping platform powered by artificial intelligence. The goal of this design was to create a clean, conversion-focused, and user-friendly layout that instantly builds trust."
+        />
+        <ProjectCard
+          image={workflowapp}
+          title="Workforce Management"
+          description="A modern and fully responsive Workforce Management Web App Dashboard designed and developed using the MERN Stack (MongoDB, Express, React, Node.js)."
+        />
+        <ProjectCard
+          image={tradingDashboard}
+          title="Trading Dashboard"
+          description="The Trading Dashboard UI Kit is a clean, minimal, and high-performing solution crafted for modern trading platforms. It includes 80+ fully auto-layout screens, ensuring smooth scalability and consistency across devices."
+        />
+        <ProjectCard
+          image={goverment}
+          title="Procurement Platform"
+          description="Procurement | Government Tenders | OEM Supply Solutions. This project showcases a fully responsive web and mobile platform for managing government tenders, procurement processes, and OEM supply solutions."
+        />
       </div>
 
-
       {/* Free Consultation */}
-      <div className="mt-16 md:flex items-center  gap-8 p-8 ">
-
-        <Image src={freeconsealtan} alt="Free Consultation" className="" />
-        <div className="p-8 rounded-3xl">
-          <h2 className="text-2xl font-bold text-black">Book a Free Consultation With Us</h2>
-          <p className="mt-2 text-black">
-          We help bring ideas to life by building smart, future-ready digital solutions that move businesses forward.
-          </p>
-          <button className="mt-4 bg-[#ED1F24] text-white px-5 py-2 rounded-full">
-            Schedule Now
-          </button>
+      <div className="mt-20 lg:mt-32">
+        <div className="bg-gray-50 rounded-3xl p-6 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="w-full lg:w-1/2">
+            <Image src={freeconsealtan} alt="Free Consultation" className="w-full h-auto" />
+          </div>
+          <div className="w-full lg:w-1/2 lg:pl-10 text-center lg:text-left">
+            <h2 className="text-3xl font-bold text-black mb-4">Book a Free Consultation With Us</h2>
+            <p className="text-gray-600 mb-8 text-lg">
+              We help bring ideas to life by building smart, future-ready digital solutions that move businesses forward.
+            </p>
+            <button className="bg-[#ED1F24] hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-colors">
+              Schedule Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
