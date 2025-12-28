@@ -5,10 +5,16 @@ import web from "@/assets/about/Website Development.svg";
 import ecomarch from "@/assets/about/eCommerce Development.svg";
 import Image from "next/image";
 
-const ServiceCard = ({ image, title }: { image: any; title: React.ReactNode }) => (
+const ServiceCard = ({
+  image,
+  title,
+}: {
+  image: any;
+  title: React.ReactNode;
+}) => (
   <div className="flex flex-col items-center group">
-    <div className="bg-gradient-to-r from-white to-[#C4C4C408] rounded-3xl p-8 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center aspect-square w-full max-w-[250px]">
-      <Image src={image} alt="Service" className="w-2/3 h-auto" />
+    <div className="bg-linear-to-r from-[#FFFFFF3D] to-[#C4C4C408] rounded-3xl p-2 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center aspect-square w-full max-w-62.5">
+      <Image src={image} alt="Service" className="w-full h-auto" />
     </div>
     <div className="mt-6 text-center">
       <h3 className="text-xl font-semibold leading-tight">{title}</h3>
@@ -25,8 +31,8 @@ const Services = () => {
         </h2>
         <p className="text-gray-300 text-lg">
           From startups to enterprises, our digital solutions help businesses
-          worldwide overcome modern challenges with a fresh, user-focused,
-          and digital-first approach.
+          worldwide overcome modern challenges with a fresh, user-focused, and
+          digital-first approach.
         </p>
       </div>
 
@@ -34,19 +40,35 @@ const Services = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <ServiceCard
           image={mobile}
-          title={<>Mobile App <br /> Development</>}
+          title={
+            <>
+              Mobile App <br /> Development
+            </>
+          }
         />
         <ServiceCard
           image={software}
-          title={<>Software <br /> Development</>}
+          title={
+            <>
+              Software <br /> Development
+            </>
+          }
         />
         <ServiceCard
           image={web}
-          title={<>Website <br /> Development</>}
+          title={
+            <>
+              Website <br /> Development
+            </>
+          }
         />
         <ServiceCard
           image={ecomarch}
-          title={<>eCommerce <br /> Development</>}
+          title={
+            <>
+              eCommerce <br /> Development
+            </>
+          }
         />
       </div>
     </div>
