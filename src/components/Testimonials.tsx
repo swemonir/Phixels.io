@@ -243,15 +243,7 @@ const Testimonials = () => {
       </Swiper>
       
       {/* Custom Styles for Swiper Pagination if needed */}
-      <style jsx global>{`
-        .testimonials-swiper .swiper-pagination-bullet {
-          background: #d1d5db;
-          opacity: 1;
-        }
-        .testimonials-swiper .swiper-pagination-bullet-active {
-          background: #ED1F24;
-        }
-      `}</style>
+
     </div>
   );
 };

@@ -15,6 +15,7 @@ const menuItems = [
     ],
   },
   { label: "About", link: "#about" },
+  { label: "Products", link: "/products" },
   { label: "Contact", link: "#contact" },
 ];
 
@@ -34,11 +35,21 @@ const Navbar = () => {
           Get Free Quote
         </button>
         <div className="dropdown dropdown-end">
-          <label
-            tabIndex={0}
-            className="btn btn-ghost btn-circle text-black"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+          <label tabIndex={0} className="btn btn-ghost btn-circle text-black">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h7"
+              />
+            </svg>
           </label>
 
           <ul
@@ -78,11 +89,16 @@ const Navbar = () => {
             <li key={index}>
               {item.children ? (
                 <details>
-                  <summary className="text-black hover:text-[#FF0000] transition-colors">{item.label}</summary>
+                  <summary className="text-black hover:text-[#FF0000] transition-colors">
+                    {item.label}
+                  </summary>
                   <ul className="p-2 bg-white rounded-box shadow-lg w-48">
                     {item.children.map((child, i) => (
                       <li key={i}>
-                        <Link className="text-black hover:text-[#FF0000]" href={child.link}>
+                        <Link
+                          className="text-black hover:text-[#FF0000]"
+                          href={child.link}
+                        >
                           {child.label}
                         </Link>
                       </li>
@@ -90,7 +106,10 @@ const Navbar = () => {
                   </ul>
                 </details>
               ) : (
-                <Link className="text-black hover:text-[#FF0000] transition-colors" href={item.link}>
+                <Link
+                  className="text-black hover:text-[#FF0000] transition-colors"
+                  href={item.link}
+                >
                   {item.label}
                 </Link>
               )}
@@ -99,7 +118,10 @@ const Navbar = () => {
 
           {/* Desktop CTA Button */}
           <li>
-            <Link href="quote" className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md">
+            <Link
+              href="quote"
+              className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md"
+            >
               Get Free Quote
             </Link>
           </li>
