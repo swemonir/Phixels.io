@@ -16,16 +16,24 @@ const page = () => {
     <div className="items-center">
       <TopBar />
       <Navbar />
-      <Hero />
-      <About />
+      <div id="home">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
       <AboutCard />
-      <Services />
+      <div id="services">
+        <Services />
+      </div>
       <Project />
       <Industries />
       <Testimonials />
       <Technologies />
       <Blog />
-      <Footer />
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 };

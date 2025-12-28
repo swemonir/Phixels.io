@@ -5,17 +5,17 @@ import Link from "next/link";
 import logo from "@/assets/logo.svg";
 
 const menuItems = [
-  { label: "Home", link: "/" },
+  { label: "Home", link: "#home" },
   {
     label: "Services",
     children: [
-      { label: "Web Development", link: "/services/web" },
-      { label: "UI/UX Design", link: "/services/ui-ux" },
-      { label: "SEO Optimization", link: "/services/seo" },
+      { label: "Web Development", link: "#services" },
+      { label: "UI/UX Design", link: "#services" },
+      { label: "SEO Optimization", link: "#services" },
     ],
   },
-  { label: "About", link: "/about" },
-  { label: "Contact", link: "/contact" },
+  { label: "About", link: "#about" },
+  { label: "Contact", link: "#contact" },
 ];
 
 const Navbar = () => {
@@ -99,7 +99,7 @@ const Navbar = () => {
 
           {/* Desktop CTA Button */}
           <li>
-            <Link href="/quote" className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md">
+            <Link href="quote" className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md">
               Get Free Quote
             </Link>
           </li>
