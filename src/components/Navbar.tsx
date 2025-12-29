@@ -9,7 +9,7 @@ const menuItems = [
   { label: "Home", link: "/" },
   { label: "Services", link: "/services" },
   { label: "Products", link: "/products" },
-  { label: "Articles", link: "/articles" },
+  { label: "Articles", link: "/blog" },
   { label: "About", link: "/#about" },
   { label: "Contact", link: "/#contact" },
 ];
