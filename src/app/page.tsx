@@ -1,14 +1,14 @@
-import About from "@/components/About";
-import AboutCard from "@/components/AboutCard";
-import Hero from "@/components/Hero";
+import About from "@/components/home/HomeAbout";
+import AboutCard from "@/components/home/AboutCard";
+import Hero from "@/components/home/Hero";
 
-import Project from "@/components/Project";
-import ServicesHome from "@/components/ServicesHome";
+import Project from "@/components/home/HomeProjects";
+import ServicesHome from "@/components/home/ServicesHome";
 
-import Industries from "@/components/Industries";
-import Testimonials from "@/components/Testimonials";
-import Technologies from "@/components/Technologies";
-import Blog from "@/components/Blog";
+import Industries from "@/components/home/Industries";
+import Testimonials from "@/components/home/Testimonials";
+import Technologies from "@/components/home/Technologies";
+import Blog from "@/components/home/HomeBlog";
 
 const page = () => {
   return (
