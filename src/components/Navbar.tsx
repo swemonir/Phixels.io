@@ -8,6 +8,7 @@ const menuItems = [
   { label: "Home", link: "/" },
   { label: "Services", link: "/services" },
   { label: "Products", link: "/products" },
+  { label: "Projects", link: "/projects" },
   { label: "Articles", link: "/blog" },
   { label: "About", link: "/#about" },
   { label: "Contact", link: "/#contact" },

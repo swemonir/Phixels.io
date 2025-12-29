@@ -54,7 +54,7 @@ const Header = () => {
 
       {/* Spacer to separate content from fixed header */}
       {/* TopBar (h-14 / 3.5rem) + Navbar (approx h-20 / 5rem) = approx h-32 / 8rem */}
-      <div className="h-32 hidden lg:block" />
+      <div className="h-28 hidden lg:block" />
       {/* Mobile might have different height logic, but for now spacer keeps layout stable */}
       <div className="h-20 block lg:hidden" />
     </>
