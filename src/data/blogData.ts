@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
         title: "AR in E-commerce: Beyond the Gimmick",
         category: "Marketing",
         date: "Dec 12, 2025",
-        image: "https://images.unsplash.com/photo-1592478411213-61535fdd861d?auto=format&fit=crop&q=80&w=1000", // Fixed URL
+        image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&q=80&w=1000",
         summary: "Conversion rates soar when users can visualize products in their space. Best practices for mobile AR.",
         content: longContentPlaceholder("Augmented Reality Commerce"),
         author: "Sarah Smith",

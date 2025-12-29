@@ -3,24 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo.svg";
+import TopBar from "./TopBar";
 
 const menuItems = [
-  { label: "Home", link: "#home" },
-  {
-    label: "Services",
-    children: [
-      { label: "Web Development", link: "#services" },
-      { label: "UI/UX Design", link: "#services" },
-      { label: "SEO Optimization", link: "#services" },
-    ],
-  },
-  { label: "About", link: "#about" },
+  { label: "Home", link: "/" },
+  { label: "Services", link: "/services" },
   { label: "Products", link: "/products" },
-  { label: "Contact", link: "#contact" },
+  { label: "Articles", link: "/articles" },
+  { label: "About", link: "/#about" },
+  { label: "Contact", link: "/#contact" },
 ];
 
 const Navbar = () => {
   return (
+    <>
+  
     <div className="navbar bg-white shadow-md sticky top-14 z-40 px-4 sm:px-8 lg:px-20 xl:px-56">
       {/* LEFT: Logo */}
       <div className="navbar-start w-auto mr-auto">
@@ -58,24 +55,9 @@ const Navbar = () => {
           >
             {menuItems.map((item, index) => (
               <li key={index}>
-                {item.children ? (
-                  <details>
-                    <summary className="text-black">{item.label}</summary>
-                    <ul>
-                      {item.children.map((child, i) => (
-                        <li key={i}>
-                          <Link className="text-black" href={child.link}>
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                ) : (
-                  <Link className="text-black" href={item.link}>
-                    {item.label}
-                  </Link>
-                )}
+                <Link className="text-black" href={item.link}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -87,32 +69,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal gap-6 px-1 text-base font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
-              {item.children ? (
-                <details>
-                  <summary className="text-black hover:text-[#FF0000] transition-colors">
-                    {item.label}
-                  </summary>
-                  <ul className="p-2 bg-white rounded-box shadow-lg w-48">
-                    {item.children.map((child, i) => (
-                      <li key={i}>
-                        <Link
-                          className="text-black hover:text-[#FF0000]"
-                          href={child.link}
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              ) : (
-                <Link
-                  className="text-black hover:text-[#FF0000] transition-colors"
-                  href={item.link}
-                >
-                  {item.label}
-                </Link>
-              )}
+              <Link
+                className="text-black hover:text-[#FF0000] transition-colors"
+                href={item.link}
+              >
+                {item.label}
+              </Link>
             </li>
           ))}
 
@@ -128,6 +90,7 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 

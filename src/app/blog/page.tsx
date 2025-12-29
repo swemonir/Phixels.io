@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaSearch } from "react-icons/fa";
 import { blogPosts } from "@/data/blogData";
+import TopBar from "@/components/TopBar";
+import Navbar from "@/components/Navbar";
 
 const BlogListing = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -29,7 +31,10 @@ const BlogListing = () => {
   }, [remainingPosts, selectedCategory, searchQuery]);
 
   return (
-    <div className="bg-black text-white min-h-screen pt-24 pb-20 px-4 sm:px-8 lg:px-20 xl:px-56">
+    <>
+      <TopBar />
+      <Navbar />
+      <div className="bg-black text-white min-h-screen pt-24 pb-20 px-4 sm:px-8 lg:px-20 xl:px-56">
       {/* Header */}
       <div className="mb-16 text-center">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
@@ -154,6 +159,7 @@ const BlogListing = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

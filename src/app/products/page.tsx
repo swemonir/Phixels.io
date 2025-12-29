@@ -1,8 +1,13 @@
+import Navbar from "@/components/Navbar";
+import TopBar from "@/components/TopBar";
 import Link from "next/link";
 import { FaArrowLeft, FaRocket } from "react-icons/fa";
 
 const ProductsPage = () => {
   return (
+    <>
+    <TopBar   />
+    <Navbar />
     <div className="min-h-screen bg-black flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900 to-black z-0" />
@@ -41,6 +46,7 @@ const ProductsPage = () => {
         &copy; 2025 Phixels.io. All rights reserved.
       </div>
     </div>
+    </>
   );
 };
 

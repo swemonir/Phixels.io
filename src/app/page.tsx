@@ -3,7 +3,7 @@ import AboutCard from "@/components/AboutCard";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Project from "@/components/Project";
-import Services from "@/components/Services";
+import ServicesHome from "@/components/ServicesHome";
 import TopBar from "@/components/TopBar";
 import Industries from "@/components/Industries";
 import Testimonials from "@/components/Testimonials";
@@ -24,7 +24,7 @@ const page = () => {
       </div>
       <AboutCard />
       <div id="services">
-        <Services />
+        <ServicesHome />
       </div>
       <Project />
       <Industries />
