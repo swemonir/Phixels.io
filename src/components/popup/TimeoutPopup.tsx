@@ -91,7 +91,7 @@ const TimeoutPopup = () => {
     return (
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300">
             {/* Main Card */}
-            <div className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-5xl w-full flex flex-col md:flex-row relative animate-fade-in-up">
+            <div className="bg-white rounded-3xl shadow-2xl max-w-5xl w-full flex flex-col md:flex-row relative animate-fade-in-up max-h-[90vh] overflow-y-auto">
 
                 {/* Close Button */}
                 <button
