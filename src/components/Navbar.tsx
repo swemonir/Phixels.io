@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo.svg";
-import TopBar from "./TopBar";
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -16,9 +15,7 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <>
-  
-    <div className="navbar bg-white shadow-md sticky top-14 z-40 px-4 sm:px-8 lg:px-20 xl:px-56">
+    <div className="navbar bg-white shadow-md px-4 sm:px-8 lg:px-20 xl:px-56">
       {/* LEFT: Logo */}
       <div className="navbar-start w-auto mr-auto">
         <Link href="/" className="flex items-center">
@@ -90,7 +87,6 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
-    </>
   );
 };
 

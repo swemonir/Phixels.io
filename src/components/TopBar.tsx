@@ -14,7 +14,6 @@ const TopBar = () => {
         bg-black
         px-4 sm:px-8 lg:px-20 xl:px-56
         flex justify-between items-center
-        sticky top-0 z-50
         h-14
       "
     >
@@ -34,7 +33,9 @@ const TopBar = () => {
           <p className="text-white text-sm">+8801723289090</p>
         </div>
 
-        <p className="hidden lg:block text-[#79BBEB] text-sm">We answer our phones!</p>
+        <p className="hidden lg:block text-[#79BBEB] text-sm">
+          We answer our phones!
+        </p>
       </div>
 
       {/* Right: logo & contacts */}
@@ -49,17 +50,10 @@ const TopBar = () => {
             className="mr-2"
           />
 
-          <Image
-            src={shortLogo}
-            alt="logo"
-            height={30}
-            width={30}
-          />
+          <Image src={shortLogo} alt="logo" height={30} width={30} />
 
           <div className="bg-[#ED1F2430] border-r-2 border-red-500 -ml-2 px-1">
-            <p className="text-white text-xs whitespace-nowrap">
-              Message Me
-            </p>
+            <p className="text-white text-xs whitespace-nowrap">Message Me</p>
           </div>
         </div>
 

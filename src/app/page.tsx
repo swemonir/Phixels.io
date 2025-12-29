@@ -1,10 +1,10 @@
 import About from "@/components/About";
 import AboutCard from "@/components/AboutCard";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Project from "@/components/Project";
 import ServicesHome from "@/components/ServicesHome";
-import TopBar from "@/components/TopBar";
+
 import Industries from "@/components/Industries";
 import Testimonials from "@/components/Testimonials";
 import Technologies from "@/components/Technologies";
@@ -14,8 +14,7 @@ import Footer from "@/components/Footer";
 const page = () => {
   return (
     <div className="items-center">
-      <TopBar />
-      <Navbar />
+      <Header />
       <div id="home">
         <Hero />
       </div>
