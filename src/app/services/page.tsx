@@ -64,7 +64,7 @@ const ServicesPage = () => {
                 href={featuredService.fiverrUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block relative rounded-3xl overflow-hidden aspect-video sm:aspect-[2/1] lg:aspect-[2.5/1] shadow-xl hover:shadow-2xl transition-shadow"
+                className="group block relative rounded-3xl overflow-hidden aspect-video sm:aspect-2/1 lg:aspect-[2.5/1] shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <Image
                   src={featuredService.image}
@@ -73,7 +73,7 @@ const ServicesPage = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6 sm:p-12 lg:p-16 max-w-4xl">
                   <span className="inline-block bg-[#1DBF73] text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
                     Featured • {featuredService.category}
@@ -111,11 +111,10 @@ const ServicesPage = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${
-                  selectedCategory === category
+                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${selectedCategory === category
                     ? "bg-[#1DBF73] text-white border-[#1DBF73]"
                     : "bg-white text-gray-700 border-gray-300 hover:border-[#1DBF73] hover:text-[#1DBF73]"
-                }`}
+                  }`}
               >
                 {category}
               </button>
