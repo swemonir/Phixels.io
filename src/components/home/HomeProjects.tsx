@@ -25,7 +25,7 @@ const ProjectCard = ({
     </div>
 
     {/* Info Card - Stacked on Mobile, Floating on Desktop */}
-    <div className="mt-6 lg:mt-0 lg:absolute lg:-bottom-20 lg:left-1/2 lg:-translate-x-1/2 w-full lg:w-[90%] bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl border border-white/20 z-10">
+    <div className="mt-6 lg:mt-0 lg:absolute lg:-bottom-56 lg:left-1/2 lg:-translate-x-1/2 w-full lg:w-[90%]  backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl border border-white/20 z-10">
       <h3 className="text-2xl font-bold text-black">{title}</h3>
       <p className="text-gray-600 mt-3 text-sm sm:text-base leading-relaxed">
         {description}
