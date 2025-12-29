@@ -45,8 +45,13 @@ const ContactHero = () => {
           </div>
 
           {/* Small image placeholder */}
-          <div className="rounded-xl overflow-hidden h-40 bg-gray-900 flex items-center justify-center text-white">
-            (Team/Office Image)
+          <div className="rounded-xl overflow-hidden h-40 bg-gray-900 relative mt-8">
+            <Image
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2684&auto=format&fit=crop"
+              alt="Team Support"
+              fill
+              className="object-cover opacity-80"
+            />
           </div>
         </div>
 

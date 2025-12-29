@@ -1,11 +1,23 @@
 import Image from "next/image";
 
-const TeamMember = ({ name, role }: { name: string; role: string }) => (
+const TeamMember = ({
+  name,
+  role,
+  image,
+}: {
+  name: string;
+  role: string;
+  image: string;
+}) => (
   <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden text-center group hover:border-[#5836F5] transition-colors">
     <div className="h-64 sm:h-72 bg-gray-800 relative overflow-hidden">
-      {/* Placeholder for Member Image */}
-      <div className="absolute inset-0 flex items-center justify-center text-gray-600 group-hover:bg-gray-700 transition-colors">
-        Member Photo
+      <div className="absolute inset-0">
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#5836F5]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
     </div>
@@ -55,10 +67,26 @@ const AboutTeam = () => {
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <TeamMember name="Ariyan" role="Product Designer" />
-          <TeamMember name="Asif Hossain" role="Senior Designer" />
-          <TeamMember name="Nanid Israt" role="Product Designer" />
-          <TeamMember name="Sulaiman Foz" role="UX Designer" />
+          <TeamMember
+            name="Ariyan"
+            role="Product Designer"
+            image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+          />
+          <TeamMember
+            name="Asif Hossain"
+            role="Senior Designer"
+            image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop"
+          />
+          <TeamMember
+            name="Nanid Israt"
+            role="Product Designer"
+            image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop"
+          />
+          <TeamMember
+            name="Sulaiman Foz"
+            role="UX Designer"
+            image="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1000&auto=format&fit=crop"
+          />
         </div>
 
         <button className="mt-12 bg-[#5836F5] hover:bg-[#4a2ce0] text-white px-8 py-3 rounded-md font-bold transition-all">

@@ -1,0 +1,45 @@
+
+> phixels@0.1.0 lint
+> eslint
+
+
+D:\monitvi\Phixels.io\src\app\services\page.tsx
+  53:69  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\monitvi\Phixels.io\src\components\about\AboutHero.tsx
+  1:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\about\AboutStory.tsx
+  1:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\about\AboutTeam.tsx
+  1:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\contact\ContactHero.tsx
+  2:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\home\Hero.tsx
+  16:77  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  53:62  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\monitvi\Phixels.io\src\components\home\HomeProjects.tsx
+  12:3   warning  'caseStudy' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  15:10  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+D:\monitvi\Phixels.io\src\components\home\Industries.tsx
+  2:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\home\Technologies.tsx
+  4:94  warning  'FaDocker' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\monitvi\Phixels.io\src\components\home\Testimonials.tsx
+    5:18  warning  'FaQuoteLeft' is defined but never used                          @typescript-eslint/no-unused-vars
+  141:37  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  182:21  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  182:34  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\monitvi\Phixels.io\src\components\services\Services.tsx
+  12:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 16 problems (8 errors, 8 warnings)
+

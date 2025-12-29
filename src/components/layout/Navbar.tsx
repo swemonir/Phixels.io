@@ -10,8 +10,8 @@ const menuItems = [
   { label: "Products", link: "/products" },
   { label: "Projects", link: "/projects" },
   { label: "Articles", link: "/blog" },
-  { label: "About", link: "/#about" },
-  { label: "Contact", link: "/#contact" },
+  { label: "About", link: "/about" },
+  { label: "Contact", link: "/contact" },
 ];
 
 const Navbar = () => {
@@ -26,9 +26,12 @@ const Navbar = () => {
 
       {/* RIGHT: Mobile Menu (Visible on small screens) */}
       <div className="navbar-end lg:hidden flex w-auto">
-        <button className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 mr-2 text-xs">
+        <Link
+          href="/contact"
+          className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 mr-2 text-xs"
+        >
           Get Free Quote
-        </button>
+        </Link>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle text-black">
             <svg
@@ -79,7 +82,7 @@ const Navbar = () => {
           {/* Desktop CTA Button */}
           <li>
             <Link
-              href="quote"
+              href="/contact"
               className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md"
             >
               Get Free Quote

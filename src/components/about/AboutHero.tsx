@@ -1,4 +1,4 @@
-import Image from "next/image";
+// Image import removed (unused)
 
 const AboutHero = () => {
   // Placeholder for the collage image - using a grid of placeholders or a single image if available
@@ -18,24 +18,39 @@ const AboutHero = () => {
       {/* Collage Placeholder */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-96 md:h-[500px] overflow-hidden rounded-3xl">
         <div className="bg-gray-800 h-full w-full rounded-2xl relative group overflow-hidden">
-          {/* Replace with actual team images when available */}
-          <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-            Team Image 1
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop"
+              alt="Team 1"
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
         </div>
         <div className="bg-gray-800 h-full w-full rounded-2xl relative group overflow-hidden md:translate-y-12">
-          <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-            Team Image 2
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop"
+              alt="Team 2"
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
         </div>
         <div className="bg-gray-800 h-full w-full rounded-2xl relative group overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-            Team Image 3
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1470&auto=format&fit=crop"
+              alt="Team 3"
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
         </div>
         <div className="bg-gray-800 h-full w-full rounded-2xl relative group overflow-hidden md:translate-y-12">
-          <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-            Team Image 4
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop"
+              alt="Team 4"
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
         </div>
       </div>

@@ -17,12 +17,20 @@ const ContactSuccess = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Placeholders for success story cards */}
-        {[1, 2, 3, 4].map((i) => (
+        {[
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1555421689-492a18d9c3ad?q=80&w=2680&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2680&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2680&auto=format&fit=crop",
+        ].map((img, i) => (
           <div key={i} className="bg-gray-900 rounded-xl overflow-hidden group">
             <div className="h-64 bg-gray-800 relative">
-              {/* Image placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-                Story Image {i}
+              <div className="absolute inset-0">
+                <img
+                  src={img}
+                  alt={`Success Story ${i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
             </div>
             <div className="p-6">

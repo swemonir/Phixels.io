@@ -1,11 +1,9 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import AboutHero from "@/components/about/AboutHero";
 import AboutStats from "@/components/about/AboutStats";
 import AboutTeam from "@/components/about/AboutTeam";
 import AboutStory from "@/components/about/AboutStory";
 import AboutClients from "@/components/about/AboutClients";
-import AboutFAQ from "../../components/about/AboutFAQ";
+import AboutFAQ from "@/components/about/AboutFAQ";
 import { FaArrowRight } from "react-icons/fa";
 
 const AboutPage = () => {

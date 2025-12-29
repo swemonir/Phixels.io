@@ -3,13 +3,13 @@ import mobile from "@/assets/about/Mobile App Development.svg";
 import software from "@/assets/about/Software Development.svg";
 import web from "@/assets/about/Website Development.svg";
 import ecomarch from "@/assets/about/eCommerce Development.svg";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const ServiceCard = ({
   image,
   title,
 }: {
-  image: any;
+  image: StaticImageData | string;
   title: React.ReactNode;
 }) => (
   <div className="flex flex-col items-center group">

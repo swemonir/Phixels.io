@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import freeconsealtan from "@/assets/project/FreeConsultation.png";
@@ -9,13 +9,11 @@ const ProjectCard = ({
   image,
   title,
   description,
-  caseStudy = false,
 }: {
   id: string;
-  image: any;
+  image: StaticImageData | string;
   title: string;
   description: string;
-  caseStudy?: boolean;
 }) => (
   <div className="relative mb-12 lg:mb-32 group">
     <div className="overflow-hidden rounded-2xl shadow-lg bg-gray-100">

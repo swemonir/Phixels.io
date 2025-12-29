@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { TbMailOpenedFilled, TbMessageFilled } from "react-icons/tb";
 
 import faca from "@/assets/trusted/faca.svg";
@@ -13,7 +13,15 @@ import google from "@/assets/review/google.svg";
 
 import { FaStar } from "react-icons/fa6";
 
-const ReviewItem = ({ title, logo, rating = "5.0" }: { title: string; logo: any; rating?: string }) => (
+const ReviewItem = ({
+  title,
+  logo,
+  rating = "5.0",
+}: {
+  title: string;
+  logo: StaticImageData | string;
+  rating?: string;
+}) => (
   <div className="mt-5">
     <p className="font-semibold mb-2 text-white">{title}</p>
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 lg:gap-10 lg:border-b border-[#3B3B3B] pb-4">
@@ -33,24 +41,26 @@ const ReviewItem = ({ title, logo, rating = "5.0" }: { title: string; logo: any;
 const Hero = () => {
   return (
     <div className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#0F0D1C] pb-10 pt-20 lg:pt-0">
-
       {/* Background image */}
       <div className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-60" />
 
       {/* Content */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-20 xl:px-56">
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-10 lg:gap-0">
-
           {/* Left Text Content */}
           <div className="w-full lg:w-1/2 text-white text-center lg:text-left mt-0 lg:mt-20">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Experience World-Class <br />
-              <span className="text-[#ED1F24]">Mobile App Development</span> Services
+              <span className="text-[#ED1F24]">
+                Mobile App Development
+              </span>{" "}
+              Services
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
               We use best-in-class technologies to build top-notch and
-              user-centric apps for innovative solutions. Let's build a brand together.
+              user-centric apps for innovative solutions. Let&apos;s build a
+              brand together.
             </p>
 
             {/* Buttons */}
@@ -73,10 +83,26 @@ const Hero = () => {
               </p>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 opacity-80">
-                <Image src={faca} alt="faca" className="h-8 w-auto mix-blend-screen" />
-                <Image src={data} alt="data" className="h-8 w-auto mix-blend-screen" />
-                <Image src={revo} alt="revo" className="h-8 w-auto mix-blend-screen" />
-                <Image src={global} alt="global" className="h-8 w-auto mix-blend-screen" />
+                <Image
+                  src={faca}
+                  alt="faca"
+                  className="h-8 w-auto mix-blend-screen"
+                />
+                <Image
+                  src={data}
+                  alt="data"
+                  className="h-8 w-auto mix-blend-screen"
+                />
+                <Image
+                  src={revo}
+                  alt="revo"
+                  className="h-8 w-auto mix-blend-screen"
+                />
+                <Image
+                  src={global}
+                  alt="global"
+                  className="h-8 w-auto mix-blend-screen"
+                />
               </div>
             </div>
           </div>
@@ -90,7 +116,6 @@ const Hero = () => {
               <ReviewItem title="Reviewed On" logo={upwork} />
             </div>
           </div>
-
         </div>
       </div>
     </div>

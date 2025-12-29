@@ -50,8 +50,8 @@ const ServicesPage = () => {
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
             Professional digital solutions designed to elevate your business.
-            <br className="hidden sm:block" /> From AI to design, we've got you
-            covered.
+            <br className="hidden sm:block" /> From AI to design, we&apos;ve got
+            you covered.
           </p>
         </div>
 
