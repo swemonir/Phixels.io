@@ -10,12 +10,7 @@ import teams from "@/assets/teams.svg";
 const TopBar = () => {
   return (
     <div
-      className="
-        bg-black
-        px-4 sm:px-8 lg:px-20 xl:px-56
-        flex justify-between items-center
-        h-14
-      "
+      className="bg-black px-4 sm:px-8 lg:px-20 xl:px-56 flex justify-between items-center h-14"
     >
       {/* Left: location and phone */}
       <div className="flex gap-3 items-center">

@@ -42,7 +42,7 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#0F0D1C] pb-10 pt-20 lg:pt-0">
       {/* Background image */}
-      <div className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-60" />
+      <div className="absolute inset-0 bg-[url('/images/hero-bg.webp')] bg-cover bg-center opacity-20" />
 
       {/* Content */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-20 xl:px-56">
