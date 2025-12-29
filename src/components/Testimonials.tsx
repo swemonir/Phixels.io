@@ -26,11 +26,11 @@ const ProfileImage = ({ src, alt }: { src?: string; alt: string }) => (
       />
     ) : (
       <div className="text-gray-400 text-4xl">
-         <span className="sr-only">{alt}</span>
-         {/* Simple avatar placeholder SVG */}
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16">
-            <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
-         </svg>
+        <span className="sr-only">{alt}</span>
+        {/* Simple avatar placeholder SVG */}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16">
+          <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+        </svg>
       </div>
     )}
   </div>
@@ -47,7 +47,7 @@ interface TestimonialData {
   summary: string;
   value: string;
   duration: string;
-  platformIcon?: React.ReactNode; 
+  platformIcon?: React.ReactNode;
   image?: string;
 }
 
@@ -63,7 +63,7 @@ const testimonials: TestimonialData[] = [
     summary: "Developed a comprehensive mobile application with a focus on intuitive navigation and real-time data synchronization for field workers.",
     value: "$50k - $100k",
     duration: "6 Months",
-    image:"https://randomuser.me/api/portraits/men/10.jpg"
+    image: "https://randomuser.me/api/portraits/men/10.jpg"
   },
   {
     id: 2,
@@ -76,7 +76,7 @@ const testimonials: TestimonialData[] = [
     summary: "Phixels planned, designed, and developed a cross-platform mobile application for Android and iOS. The team delivered a complete solution covering UI/UX.",
     value: "$50,000 - $199,999",
     duration: "June 2023 - Ongoing",
-    image:"https://randomuser.me/api/portraits/men/11.jpg"
+    image: "https://randomuser.me/api/portraits/men/11.jpg"
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ const testimonials: TestimonialData[] = [
     summary: "Complete overhaul of legacy codebase to Next.js, improving performance scores by 40% and user retention by 25%.",
     value: "$30k - $80k",
     duration: "4 Months",
-    image:"https://randomuser.me/api/portraits/men/12.jpg"
+    image: "https://randomuser.me/api/portraits/men/12.jpg"
   },
   {
     id: 4,
@@ -102,9 +102,9 @@ const testimonials: TestimonialData[] = [
     summary: "Built a dual-sided marketplace with complex payment splitting and real-time tracking features.",
     value: "$40k - $90k",
     duration: "5 Months",
-    image:"https://randomuser.me/api/portraits/men/14.jpg"
+    image: "https://randomuser.me/api/portraits/men/14.jpg"
   },
-   {
+  {
     id: 5,
     rating: 5.0,
     quote: "Their expertise in AI and machine learning Helped us automate our customer support workflow seamlessly.",
@@ -115,7 +115,7 @@ const testimonials: TestimonialData[] = [
     summary: "Integrated a custom LLM solution into our existing support stack, reducing human workload by 60%.",
     value: "$20k - $50k",
     duration: "3 Months",
-    image:"https://randomuser.me/api/portraits/men/15.jpg"
+    image: "https://randomuser.me/api/portraits/men/15.jpg"
   },
   {
     id: 6,
@@ -128,7 +128,7 @@ const testimonials: TestimonialData[] = [
     summary: "Created a real-time logistics dashboard with map integration and live driver tracking.",
     value: "$25k - $60k",
     duration: "4 Months",
-    image:"https://randomuser.me/api/portraits/men/6.jpg"
+    image: "https://randomuser.me/api/portraits/men/6.jpg"
   },
 ];
 
@@ -136,18 +136,18 @@ const Testimonials = () => {
   return (
     <div className="bg-white text-gray-900 px-4 sm:px-8 lg:px-20 xl:px-56 py-12 lg:py-20 overflow-hidden">
       <div className="flex flex-col lg:flex-row items-end justify-between gap-6 mb-12">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 whitespace-nowrap">
             Empowered by Our Clients' Stories
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 ">
             Discover the impact of our expertise through their words.
           </p>
         </div>
 
-        <button className="bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md transition-colors whitespace-nowrap">
+        {/* <button className="bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md transition-colors whitespace-nowrap">
           View All Reviews
-        </button>
+        </button> */}
       </div>
 
       <Swiper
@@ -161,7 +161,7 @@ const Testimonials = () => {
       >
         {testimonials.map((item) => (
           <SwiperSlide key={item.id}>
-             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center shadow-sm">
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center shadow-sm">
               {/* Left Stats/Quote */}
               <div className="w-full lg:w-1/3 space-y-6">
                 <div className="flex items-center gap-3">
@@ -178,15 +178,15 @@ const Testimonials = () => {
                 <div>
                   <p className="text-[#F97316] font-semibold mb-2 text-sm uppercase tracking-wide">The Review</p>
                   <p className="text-gray-600 italic leading-relaxed relative">
-                     <span className="text-4xl text-gray-300 absolute -top-4 -left-2 -z-10">“</span>
+                    <span className="text-4xl text-gray-300 absolute -top-4 -left-2 -z-10">“</span>
                     "{item.quote}"
                   </p>
                 </div>
 
-                 <div>
+                <div>
                   {/* <p className="text-[#ED1F24] font-semibold mb-2">Project Success</p> */}
-                   <p className="text-gray-500 text-sm leading-relaxed">
-                     {/* Optional extra text could go here */}
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {/* Optional extra text could go here */}
                   </p>
                 </div>
 
@@ -198,25 +198,25 @@ const Testimonials = () => {
 
               {/* Center Image */}
               <div className="w-full lg:w-1/3 flex justify-center order-first lg:order-0">
-                 <div className="relative">
-                    <div className="w-64 h-80 bg-gray-100 rounded-2xl overflow-hidden relative shadow-lg border-4 border-white/50">
-                        <ProfileImage src={item.image} alt={item.authorName} />
-                    </div>
-                    {/* Decorative line/connector could go here if implementing the exact visual from the screenshot */}
-                 </div>
+                <div className="relative">
+                  <div className="w-64 h-80 bg-gray-100 rounded-2xl overflow-hidden relative shadow-lg border-4 border-white/50">
+                    <ProfileImage src={item.image} alt={item.authorName} />
+                  </div>
+                  {/* Decorative line/connector could go here if implementing the exact visual from the screenshot */}
+                </div>
               </div>
 
               {/* Right Details */}
               <div className="w-full lg:w-1/3">
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 leading-tight">{item.projectTitle}</h3>
-                
-                 {/* Verified Badge */}
-                 <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-500 rounded-md text-xs font-medium mb-6 border border-blue-100">
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    Verified Review
-                 </div>
+
+                {/* Verified Badge */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-500 rounded-md text-xs font-medium mb-6 border border-blue-100">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Verified Review
+                </div>
 
                 <div className="space-y-6">
                   <div>
@@ -241,7 +241,7 @@ const Testimonials = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      
+
       {/* Custom Styles for Swiper Pagination if needed */}
 
     </div>
