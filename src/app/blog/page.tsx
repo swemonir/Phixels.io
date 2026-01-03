@@ -59,7 +59,7 @@ const BlogListing = () => {
           <div className="mb-20">
             <Link
               href={`/blog/${featuredPost.id}`}
-              className="group block relative rounded-3xl overflow-hidden aspect-video sm:aspect-[2/1] lg:aspect-[2.5/1]"
+              className="group block relative rounded-3xl overflow-hidden aspect-video sm:aspect-2/1 lg:aspect-[2.5/1]"
             >
               <Image
                 src={featuredPost.image}

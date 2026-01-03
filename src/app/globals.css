@@ -31,3 +31,17 @@ body {
 } */
 
 .testimonials-swiper .swiper-pagination-bullet { background: #d1d5db; opacity: 1; } .testimonials-swiper .swiper-pagination-bullet-active { background: #ED1F24; }
+
+@keyframes marquee-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-marquee-up {
+  display: inline-block;
+  animation: marquee-up 5s linear infinite;
+}

@@ -1,44 +1,73 @@
 import Image from "next/image";
 import Link from "next/link";
 import fiver from "@/assets/fiverr.svg";
-import shortLogo from "@/assets/short-logo.svg";
+import shortLogo from "@/assets/topbar/fiverr-icon 2.svg";
+import upwork from "@/assets/topbar/upwork-icon.svg";
+import freelencer from "@/assets/topbar/freelencer.svg";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdWifiCalling3 } from "react-icons/md";
 import gmail from "@/assets/gmail.svg";
 import whatsapp from "@/assets/whatsapp.svg";
-import teams from "@/assets/teams.svg";
+import { motion } from "framer-motion";
+import {
+  Smartphone,
+  Globe,
+  Code,
+  ShoppingCart,
+  Palette,
+} from "lucide-react";
 
 const TopBar = () => {
+
+  const marqueeItems = [
+    { icon: Smartphone, text: "Mobile App Development" },
+    { icon: Globe, text: "Website Development" },
+    { icon: Code, text: "Software Development" },
+    { icon: ShoppingCart, text: "eCommerce Development" },
+    { icon: Palette, text: "UI/UX Design" },
+    // { icon: BarChart3, text: "Digital Marketing" }
+  ];
+
+  // Duplicate items for seamless looping
+  const duplicatedItems = [...marqueeItems, ...marqueeItems];
+
   return (
     <div
-      className="bg-black px-4 sm:px-8 lg:px-20 xl:px-56 flex justify-between items-center h-14"
+      className="bg-black px-4 sm:px-8 lg:px-20 xl:px-56 flex justify-around items-center h-14"
     >
       {/* Left: location and phone */}
-      <div className="flex gap-3 items-center">
-        {/* location */}
-        <div className="hidden sm:flex items-center gap-1">
-          <FaLocationDot className="text-white" />
-          <p className="text-white text-sm">Dhaka, Bangladesh</p>
-        </div>
-
-        <div className="hidden sm:text-[#636060]">|</div>
-
-        {/* phone */}
-        <div className="flex items-center gap-1">
-          <MdWifiCalling3 className="text-white" />
-          <p className="text-white text-sm">+8801723289090</p>
-        </div>
-
-        <p className="hidden lg:block text-[#79BBEB] text-sm">
-          We answer our phones!
-        </p>
+      <div className="h-full w-full mx-5 my-auto overflow-hidden relative flex items-center">
+        <motion.div
+          className="w-full overflow-hidden whitespace-nowrap"
+          style={{ height: '2.5rem' }}
+        >
+          <motion.div
+            className="flex items-center justify-start gap-8 text-white h-full"
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          >
+            {duplicatedItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 min-w-max h-full"
+              >
+                <item.icon size={20} className="text-[#C10007] shrink-0" />
+                <span className="leading-none my-auto">{item.text}</span>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Right: logo & contacts */}
-      <div className="flex items-center gap-16 ml-auto">
+      <div className="flex items-center gap-32 ml-auto">
         {/* Fiverr + logo */}
         {/* Fiverr + logo */}
-        <Link href="https://www.fiverr.com/" target="_blank" className="hidden md:flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+        <Link href="https://www.fiverr.com/zmonir24" target="_blank" className="hidden md:flex items-center cursor-pointer hover:opacity-80 transition-opacity">
           <Image
             src={fiver}
             alt="fiver"
@@ -47,26 +76,61 @@ const TopBar = () => {
             className="mr-2"
           />
 
-          <Image src={shortLogo} alt="logo" height={30} width={30} />
+          <Image src={shortLogo} alt="logo" height={25} width={25} />
 
-          <div className="bg-[#ED1F2430] border-r-2 border-red-500 -ml-2 px-1">
-            <p className="text-white text-xs whitespace-nowrap">Message Me</p>
+          <div className="bg-[#ED1F2430] border-red-500 -ml-1 px-1">
+            {/* <p className="text-white text-xs whitespace-nowrap">Message Me</p> */}
+            <div className="relative bg-[#ED1F2430] px-1 overflow-hidden">
+              {/* Dual animated borders for continuous effect */}
+              <div className="absolute inset-y-0 right-0 w-0.5">
+                <div className="absolute top-0 h-full w-full bg-red-500 animate-border-move"></div>
+                <div className="absolute top-0 h-full w-full bg-red-500 animate-border-move-delayed"></div>
+              </div>
+
+              <p className="text-white text-xs whitespace-nowrap relative z-10">
+                Message Me
+              </p>
+            </div>
           </div>
         </Link>
 
         {/* Social icons */}
-        {/* Social icons */}
         <div className="flex md:gap-3 sm:gap-2 gap-1 items-center">
-          <Link href="https://wa.me/" target="_blank">
-            <Image alt="whatsapp" src={whatsapp} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+          {/* WhatsApp */}
+          <Link href="https://wa.me/8801723289090" target="_blank" rel="noopener noreferrer">
+            <Image
+              alt="whatsapp"
+              src={whatsapp}
+              height={50}
+              width={50}
+              className="cursor-pointer hover:scale-110 transition-transform"
+            />
           </Link>
+
           <div className="text-[#636060]">|</div>
-          <Link href="#" target="_blank">
-            <Image alt="teams" src={teams} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+
+          {/* Teams */}
+          <Link href="https://teams.microsoft.com/l/chat/0/0?users=swe.monir@outlook.com" target="_blank" rel="noopener noreferrer">
+            <Image
+              alt="upwork"
+              src={upwork}
+              height={50}
+              width={50}
+              className="cursor-pointer hover:scale-110 transition-transform border rounded-full border-red-500"
+            />
           </Link>
+
           <div className="text-[#636060]">|</div>
-          <Link href="mailto:info@example.com" target="_blank">
-            <Image alt="gmail" src={gmail} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+
+          {/* Email (Gmail) — remove target="_blank" */}
+          <Link href="mailto:phixels.io@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Image
+              alt="freelencer"
+              src={freelencer}
+              height={40}
+              width={40}
+              className="cursor-pointer hover:scale-110 transition-transform"
+            />
           </Link>
         </div>
       </div>

@@ -157,7 +157,7 @@ const ServicesPage = () => {
                 </span>
               </div>
 
-              <div className="p-4 flex flex-col flex-grow">
+              <div className="p-4 flex flex-col grow">
                 <h3 className="text-base font-semibold text-white mb-3 line-clamp-2 leading-snug">
                   {service.title}
                 </h3>

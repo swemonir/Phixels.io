@@ -42,7 +42,7 @@ const ServiceCard = ({
       </span>
     </div>
 
-    <div className="p-4 flex flex-col flex-grow bg-white">
+    <div className="p-4 flex flex-col grow bg-white">
       <h3 className="text-base font-semibold text-gray-800 mb-3 line-clamp-2 leading-snug">
         {title}
       </h3>
