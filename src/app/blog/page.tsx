@@ -12,9 +12,9 @@ const BlogListing = () => {
 
   const categories = [
     "All",
+    "AI",
     "Development",
     "Design",
-    "AI",
     "Business",
     "Marketing",
   ];
@@ -42,7 +42,7 @@ const BlogListing = () => {
 
   return (
     <>
-      <div className="bg-black text-white min-h-screen pt-24 pb-20 px-4 sm:px-8 lg:px-20 xl:px-56">
+      <div className="bg-[#0F0D1C] text-white min-h-screen pt-24 pb-20 px-4 sm:px-8 lg:px-20 xl:px-56">
         {/* Header */}
         <div className="mb-16 text-center">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
@@ -68,7 +68,7 @@ const BlogListing = () => {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 sm:p-12 lg:p-16 max-w-4xl">
                 <span className="inline-block bg-[#ED1F24] text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
                   Featured • {featuredPost.category}
@@ -95,11 +95,10 @@ const BlogListing = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${
-                  selectedCategory === category
-                    ? "bg-[#ED1F24] text-white border-[#ED1F24]"
-                    : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600 hover:text-white"
-                }`}
+                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${selectedCategory === category
+                  ? "bg-[#ED1F24] text-white border-[#ED1F24]"
+                  : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600 hover:text-white"
+                  }`}
               >
                 {category}
               </button>
@@ -141,7 +140,7 @@ const BlogListing = () => {
                 </span>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="p-6 flex flex-col grow">
                 <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
                   <span>{post.date}</span>
                   {post.readTime && <span>• {post.readTime}</span>}
@@ -150,7 +149,7 @@ const BlogListing = () => {
                 <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#ED1F24] transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed flex-grow">
+                <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed grow">
                   {post.summary}
                 </p>
 

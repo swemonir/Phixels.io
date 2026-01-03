@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
 import { TbMailOpenedFilled, TbMessageFilled } from "react-icons/tb";
 
@@ -38,7 +40,11 @@ const ReviewItem = ({
   </div>
 );
 
+import { usePopup } from "@/context/PopupContext";
+
 const Hero = () => {
+  const { openPopup } = usePopup();
+
   return (
     <div className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#0F0D1C] pb-10 pt-20 lg:pt-0">
       {/* Background image */}
@@ -65,12 +71,18 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
-              <button className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors">
+              <button
+                onClick={openPopup}
+                className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
+              >
                 <TbMessageFilled size={20} />
                 <span className="font-medium">Get Started</span>
               </button>
 
-              <button className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md w-full sm:w-auto transition-colors">
+              <button
+                onClick={openPopup}
+                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
+              >
                 <TbMailOpenedFilled size={20} color="#ED1F24" />
                 <span className="font-medium">Request a Quote</span>
               </button>

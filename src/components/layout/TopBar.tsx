@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import fiver from "@/assets/fiverr.svg";
 import shortLogo from "@/assets/short-logo.svg";
 import { FaLocationDot } from "react-icons/fa6";
@@ -36,7 +37,8 @@ const TopBar = () => {
       {/* Right: logo & contacts */}
       <div className="flex items-center gap-16 ml-auto">
         {/* Fiverr + logo */}
-        <div className="hidden md:flex items-center">
+        {/* Fiverr + logo */}
+        <Link href="https://www.fiverr.com/" target="_blank" className="hidden md:flex items-center cursor-pointer hover:opacity-80 transition-opacity">
           <Image
             src={fiver}
             alt="fiver"
@@ -50,15 +52,22 @@ const TopBar = () => {
           <div className="bg-[#ED1F2430] border-r-2 border-red-500 -ml-2 px-1">
             <p className="text-white text-xs whitespace-nowrap">Message Me</p>
           </div>
-        </div>
+        </Link>
 
         {/* Social icons */}
+        {/* Social icons */}
         <div className="flex md:gap-3 sm:gap-2 gap-1 items-center">
-          <Image alt="whatsapp" src={whatsapp} height={26} width={26} />
+          <Link href="https://wa.me/" target="_blank">
+            <Image alt="whatsapp" src={whatsapp} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+          </Link>
           <div className="text-[#636060]">|</div>
-          <Image alt="teams" src={teams} height={26} width={26} />
+          <Link href="#" target="_blank">
+            <Image alt="teams" src={teams} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+          </Link>
           <div className="text-[#636060]">|</div>
-          <Image alt="gmail" src={gmail} height={26} width={26} />
+          <Link href="mailto:info@example.com" target="_blank">
+            <Image alt="gmail" src={gmail} height={26} width={26} className="cursor-pointer hover:scale-110 transition-transform" />
+          </Link>
         </div>
       </div>
     </div>

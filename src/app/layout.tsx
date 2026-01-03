@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TimeoutPopup from "@/components/popup/TimeoutPopup";
+import { PopupProvider } from "@/context/PopupContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <TimeoutPopup />
-        {children}
-        <Footer />
+        <PopupProvider>
+          <Header />
+          <TimeoutPopup />
+          {children}
+          <Footer />
+        </PopupProvider>
       </body>
     </html>
   );

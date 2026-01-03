@@ -14,8 +14,29 @@ const generateCaptcha = () => {
     return { num1, num2, answer: num1 + num2 };
 };
 
+import { usePopup } from "@/context/PopupContext";
+
+// ... (keep generateCaptcha)
+
 const TimeoutPopup = () => {
-    const [isOpen, setIsOpen] = useState(false);
+
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        budget: "",
+        message: "",
+    });
+
+    const handleBudgetSelect = (budget: string) => {
+        setFormData({ ...formData, budget });
+    };
+
+
+
+
+    const { isOpen, openPopup, closePopup } = usePopup(); // Use Context
     const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, answer: 0 });
     const [captchaInput, setCaptchaInput] = useState("");
     const formRef = useRef<HTMLFormElement>(null);
@@ -27,23 +48,23 @@ const TimeoutPopup = () => {
         setCaptcha(generateCaptcha());
 
         const initialTimer = setTimeout(() => {
-            setIsOpen(true);
+            openPopup(); // Use openPopup from context
         }, 30000); // 30 seconds initial delay
 
         return () => {
             clearTimeout(initialTimer);
             if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
         };
-    }, []);
+    }, [openPopup]); // Add openPopup dependency
 
     const handleClose = () => {
-        setIsOpen(false);
+        closePopup(); // Use closePopup from context
         // Clear any existing reopen timer to avoid multiple timers
         if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
 
         // Reopen after 1 minute (60000ms)
         reopenTimerRef.current = setTimeout(() => {
-            setIsOpen(true);
+            openPopup(); // Use openPopup from context
         }, 60000);
     };
 
@@ -74,7 +95,7 @@ const TimeoutPopup = () => {
                 setStatus("success");
                 // Stop the popup from reopening if successfully submitted
                 if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-                setTimeout(() => setIsOpen(false), 3000);
+                setTimeout(() => closePopup(), 3000);
             } else {
                 setStatus("error");
                 setErrorMsg("Failed to send message. Please try again.");
@@ -171,6 +192,33 @@ const TimeoutPopup = () => {
                                     className="w-full border border-gray-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-black"
                                     placeholder="Enter Email Address"
                                 />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">
+                                    Project Budget
+                                </label>
+                                <div className="flex flex-wrap gap-2 text-xs text-gray-600">
+                                    {[
+                                        "Less than $1k",
+                                        "$1k - $3k",
+                                        "$3k - $10k",
+                                        "$10k - $20k",
+                                        "More than $20k",
+                                    ].map((budget) => (
+                                        <button
+                                            type="button"
+                                            key={budget}
+                                            onClick={() => handleBudgetSelect(budget)}
+                                            className={`border px-4 py-2 rounded-full transition-colors ${formData.budget === budget
+                                                ? "bg-black text-white border-black"
+                                                : "border-gray-300 hover:bg-black hover:text-white"
+                                                }`}
+                                        >
+                                            {budget}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
                             <div>
