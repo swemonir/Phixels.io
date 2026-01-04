@@ -37,7 +37,7 @@ const TopBar = () => {
   return (
     <div className="bg-black px-4 sm:px-8 lg:px-20 xl:px-56 flex items-center h-14">
       {/* Left: location and phone */}
-      <div className="h-full w-full mx-5 my-auto overflow-hidden relative flex items-center">
+      <div className="h-full w-full  my-auto overflow-hidden relative flex items-center pr-6">
         <motion.div
           className="w-full overflow-hidden whitespace-nowrap"
           style={{ height: "2.5rem" }}
@@ -94,7 +94,6 @@ const TopBar = () => {
               {/* <p className="text-white text-xs whitespace-nowrap">Message Me</p> */}
               <div className="relative bg-[#ED1F2410] px-1 left-0 overflow-hidden">
                 {/* Dual animated borders for continuous effect */}
-           
 
                 <p className="text-white text-sm whitespace-nowrap font-medium relative z-10 p-1 ml-2">
                   Message Me
@@ -152,7 +151,7 @@ const TopBar = () => {
               src={gmail}
               height={30}
               width={30}
-              className="cursor-pointer hover:scale-110 transition-transform"
+              className="cursor-pointer hover:scale-110 transition-transform mr-2.5"
             />
           </Link>
         </div>
