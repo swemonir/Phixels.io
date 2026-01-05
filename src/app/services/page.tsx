@@ -35,7 +35,9 @@ const ServicesPage = () => {
         selectedCategory === "All" || service.category === selectedCategory;
       const matchesSearch =
         service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.summary.toLowerCase().includes(searchQuery.toLowerCase());
+        service.shortDescription
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [remainingServices, selectedCategory, searchQuery]);
@@ -67,7 +69,7 @@ const ServicesPage = () => {
                 className="group block relative rounded-3xl overflow-hidden aspect-video sm:aspect-2/1 lg:aspect-[2.5/1] shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <Image
-                  src={featuredService.image}
+                  src={featuredService.heroImage}
                   alt={featuredService.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -82,7 +84,7 @@ const ServicesPage = () => {
                     {featuredService.title}
                   </h2>
                   <p className="text-gray-200 text-lg sm:text-xl line-clamp-2 max-w-2xl mb-4">
-                    {featuredService.summary}
+                    {featuredService.shortDescription}
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
@@ -111,10 +113,11 @@ const ServicesPage = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${selectedCategory === category
-                  ? "bg-[#ED1F24] text-white border-[#ED1F24]"
-                  : "bg-transparent text-gray-400 border-gray-700 hover:border-[#ED1F24] hover:text-[#ED1F24]"
-                  }`}
+                className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${
+                  selectedCategory === category
+                    ? "bg-[#ED1F24] text-white border-[#ED1F24]"
+                    : "bg-transparent text-gray-400 border-gray-700 hover:border-[#ED1F24] hover:text-[#ED1F24]"
+                }`}
               >
                 {category}
               </button>
@@ -146,7 +149,7 @@ const ServicesPage = () => {
             >
               <div className="relative h-56 overflow-hidden">
                 <Image
-                  src={service.image}
+                  src={service.heroImage}
                   alt={service.title}
                   width={600}
                   height={400}

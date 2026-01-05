@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Service } from "@/data/servicesData";
 import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
-import { useServicePopup } from "@/components/services/LeadPopupWrapper";
+import { useServicePopup } from "@/components/services/ServicePopupWrapper";
 
 // Animations
 const fadeInUp = {

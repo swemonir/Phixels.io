@@ -4,6 +4,10 @@ export interface Service {
     title: string;
     category: "App" | "Web" | "Software" | "AI" | "Design" | "Development" | "UI" | "UX"; 
     shortDescription: string;
+    fiverrUrl: string;
+    rating: number;
+    reviews: number;
+    price: string;
     heroImage: string;
     description: string;
     features: string[];
@@ -71,6 +75,10 @@ const createService = (id: string, title: string, category: Service['category'],
     title,
     category,
     shortDescription: desc,
+    fiverrUrl: "https://www.fiverr.com/monitvi",
+    rating: 5.0,
+    reviews: Math.floor(Math.random() * 100) + 10,
+    price: `$${Math.floor(Math.random() * 500) + 100}`,
     heroImage: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000",
     description: `We specialize in ${title}. ${desc} Our expert team delivers high-quality solutions tailored to your business needs.`,
     features: [

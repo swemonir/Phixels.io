@@ -19,7 +19,7 @@ export const useServicePopup = () => {
   return context;
 };
 
-export default function LeadPopupWrapper({
+export default function ServicePopupWrapper({
   children,
   serviceName,
 }: {

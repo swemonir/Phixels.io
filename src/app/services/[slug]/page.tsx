@@ -12,7 +12,7 @@ import {
   TeamList,
   RelatedBlogPosts,
 } from "@/components/services/ServiceSections";
-import LeadPopupWrapper from "@/components/services/LeadPopupWrapper"; // We need a client wrapper for the popup
+import ServicePopupWrapper from "@/components/services/ServicePopupWrapper"; // We need a client wrapper for the popup
 
 interface PageProps {
   params: Promise<{
@@ -50,7 +50,7 @@ export default async function ServicePage(props: PageProps) {
 
   return (
     <main className="min-h-screen bg-white">
-      <LeadPopupWrapper serviceName={service.title}>
+      <ServicePopupWrapper serviceName={service.title}>
         <ServiceHero service={service} />
         <ServiceDetails service={service} />
         <Benefits service={service} />
@@ -62,7 +62,7 @@ export default async function ServicePage(props: PageProps) {
         <TeamList />
         <FAQ service={service} />
         <RelatedBlogPosts />
-      </LeadPopupWrapper>
+      </ServicePopupWrapper>
     </main>
   );
 }
