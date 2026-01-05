@@ -11,18 +11,14 @@ const ServiceCard = ({
   title,
   category,
   description,
-  slug,
 }: {
   image: string;
   title: string;
   category: string;
   description: string;
-  slug: string;
 }) => (
-  <Link
-    href={`/services/${slug}`}
-    className="bg-white rounded-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:-translate-y-1"
-  >
+  // Removed Link wrapper, now just a div
+  <div className="bg-white rounded-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-100 hover:-translate-y-1">
     <div className="relative h-48 overflow-hidden">
       <Image
         src={image}
@@ -45,20 +41,17 @@ const ServiceCard = ({
         {description}
       </p>
 
-      <div className="mt-auto flex items-center text-red-600 font-semibold text-sm group-hover:underline">
-        Learn More{" "}
-        <FaArrowRight className="ml-2 text-xs transition-transform group-hover:translate-x-1" />
-      </div>
+      {/* Removed "Learn More" link */}
     </div>
-  </Link>
+  </div>
 );
 
 const ServicesHome = () => {
   // Select diverse services to display
   const topServices = [
-    services.find((s) => s.id === "ai-chatbot-development") || services[0],
-    services.find((s) => s.id === "full-stack-development") || services[1],
-    services.find((s) => s.id === "mobile-app-development") || services[2], // fallback to index if not found (though ids should match data)
+    services.find((s) => s.id === "ecommerce-development") || services[10], // E-commerce
+    services.find((s) => s.id === "full-stack-development") || services[8], // Web
+    services.find((s) => s.id === "ios-app-development") || services[1], // App
   ];
 
   return (
@@ -76,13 +69,7 @@ const ServicesHome = () => {
             integration to full-scale web platforms.
           </p>
         </div>
-
-        <Link
-          href="/services"
-          className="hover:bg-red-700 bg-[#FF0000] text-white px-6 py-3 rounded-md transition-colors whitespace-nowrap font-semibold"
-        >
-          View All Services
-        </Link>
+        {/* Removed "View All Services" button */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,7 +80,6 @@ const ServicesHome = () => {
             title={service.title}
             category={service.category}
             description={service.shortDescription}
-            slug={service.id}
           />
         ))}
       </div>

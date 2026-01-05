@@ -23,6 +23,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   onMouseEnter,
   onMouseLeave,
 }) => {
+  const [activeCategory, setActiveCategory] = React.useState<string>(
+    megaMenuCategories[0].title
+  );
+
+  const activeCategoryData = megaMenuCategories.find(
+    (c) => c.title === activeCategory
+  );
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,54 +44,86 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           onMouseLeave={onMouseLeave}
         >
           <div className="container mx-auto px-4 sm:px-8 lg:px-20 xl:px-32 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {megaMenuCategories.map((category, index) => (
-                <div key={index} className="flex flex-col space-y-4">
-                  {/* Category Header */}
-                  <div className="flex items-center space-x-3 mb-2 border-b border-gray-100 pb-2">
-                    <span className="text-red-600 bg-red-50 p-2 rounded-lg">
-                      {getCategoryIcon(category.title)}
-                    </span>
-                    <h3 className="font-bold text-gray-800 text-lg">
-                      {category.title}
-                    </h3>
-                  </div>
-
-                  {/* Sub-items */}
-                  <ul className="space-y-2">
-                    {category.subItems.map((item, subIndex) => (
-                      <li key={subIndex}>
-                        <Link
-                          href={item.href}
-                          className="group flex items-center justify-between text-gray-600 hover:text-red-600 hover:bg-red-50 px-3 py-2 rounded-md transition-all duration-200 text-sm font-medium"
-                        >
-                          <span>{item.label}</span>
-                          <FaChevronRight className="opacity-0 group-hover:opacity-100 text-xs transition-opacity transform group-hover:translate-x-1" />
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom CTA or Info */}
-            <div className="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center bg-gray-50 rounded-lg p-4">
-              <div>
-                <h4 className="font-semibold text-gray-800">
-                  Need a Custom Solution?
-                </h4>
-                <p className="text-sm text-gray-500">
-                  We build tailored software to meet your specific business
-                  goals.
-                </p>
+            <div className="flex flex-col lg:flex-row gap-12">
+              {/* Left Side: Categories */}
+              <div className="w-full lg:w-1/4 border-r border-gray-100 pr-4">
+                <ul className="space-y-2">
+                  {megaMenuCategories.map((category, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => setActiveCategory(category.title)}
+                        className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between transition-all duration-200 ${
+                          activeCategory === category.title
+                            ? "bg-red-50 text-red-600 font-bold"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          {getCategoryIcon(category.title)}
+                          <span>{category.title}</span>
+                        </div>
+                        {activeCategory === category.title && (
+                          <FaChevronRight className="text-sm" />
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <Link
-                href="/contact"
-                className="btn btn-sm bg-red-600 text-white border-none hover:bg-red-700"
-              >
-                Talk to an Expert
-              </Link>
+
+              {/* Right Side: Sub-items */}
+              <div className="w-full lg:w-3/4">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeCategory}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                      {activeCategory}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                      {activeCategoryData?.subItems.map((item, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={item.href}
+                          className="group flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-xs font-bold group-hover:bg-red-600 group-hover:text-white transition-colors">
+                              {item.label.charAt(0)}
+                            </div>
+                            <span className="text-gray-600 font-medium group-hover:text-gray-900">
+                              {item.label}
+                            </span>
+                          </div>
+                          <FaChevronRight className="text-gray-300 group-hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Bottom CTA */}
+                {/* <div className="mt-10 pt-6 border-t border-gray-100 flex justify-between items-center">
+                  <div>
+                    <h4 className="font-bold text-gray-800">
+                      Not sure what you need?
+                    </h4>
+                    <p className="text-sm text-gray-500">
+                      Schedule a free consultation with our experts.
+                    </p>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="px-6 py-2.5 bg-gray-900 text-white rounded-full hover:bg-red-600 transition-colors font-medium text-sm"
+                  >
+                    Book Consultation
+                  </Link>
+                </div> */}
+              </div>
             </div>
           </div>
         </motion.div>

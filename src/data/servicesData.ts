@@ -57,20 +57,20 @@ export const megaMenuCategories: MegaMenuCategory[] = [
         ]
     },
     {
-        title: "Artificial Intelligence & Integration",
+        title: "E-commerce Solutions",
         subItems: [
-            { label: "AI Chatbot Development", href: "/services/ai-chatbot-development" },
-            { label: "Machine Learning Solutions", href: "/services/machine-learning-solutions" },
-            { label: "Computer Vision", href: "/services/computer-vision" },
-            { label: "API & System Integration", href: "/services/api-system-integration" },
-            { label: "Automation & AI Tools", href: "/services/automation-ai-tools" },
-            { label: "Data Analytics & AI Models", href: "/services/data-analytics-ai-models" },
+            { label: "E-commerce Development", href: "/services/ecommerce-development" },
+            { label: "Shopify Solutions", href: "/services/shopify-solutions" },
+            { label: "WooCommerce Store", href: "/services/woocommerce-store" },
+            { label: "Magento Development", href: "/services/magento-development" },
+            { label: "Headless Commerce", href: "/services/headless-commerce" },
+            { label: "E-commerce Optimization", href: "/services/ecommerce-optimization" },
         ]
     }
 ];
 
 // Helper to create placeholder service data if not fully defined yet, ensuring no crashes
-const createService = (id: string, title: string, category: Service['category'], desc: string): Service => ({
+const createService = (id: string, title: string, category: Service['category'], desc: string, customImage?: string): Service => ({
     id,
     title,
     category,
@@ -79,7 +79,7 @@ const createService = (id: string, title: string, category: Service['category'],
     rating: 5.0,
     reviews: Math.floor(Math.random() * 100) + 10,
     price: `$${Math.floor(Math.random() * 500) + 100}`,
-    heroImage: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000",
+    heroImage: customImage || "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200", // Professional office/tech default
     description: `We specialize in ${title}. ${desc} Our expert team delivers high-quality solutions tailored to your business needs.`,
     features: [
         "Custom Scalable Architecture",
@@ -115,8 +115,8 @@ const createService = (id: string, title: string, category: Service['category'],
 
 export const services: Service[] = [
     // App Development
-    createService("android-app-development", "Android App Development", "App", "Native Android apps built with Kotlin and Jetpack Compose."),
-    createService("ios-app-development", "iOS App Development", "App", "Premium iOS applications using Swift and SwiftUI."),
+    createService("android-app-development", "Android App Development", "App", "Native Android apps built with Kotlin and Jetpack Compose.", "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1200"),
+    createService("ios-app-development", "iOS App Development", "App", "Premium iOS applications using Swift and SwiftUI.", "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200"),
     createService("react-native-app", "React Native App", "App", "Cross-platform apps ensuring 95% code reusability."),
     createService("flutter-app", "Flutter App", "App", "Beautiful, natively compiled applications from a single codebase."),
     createService("cross-platform-app", "Cross Platform App", "App", "Efficient multi-platform solutions."),
@@ -125,9 +125,9 @@ export const services: Service[] = [
     // Web Development
     createService("frontend-development", "Frontend Development", "Web", "Engaging and responsive user interfaces."),
     createService("backend-development", "Backend Development", "Web", "Robust and scalable server-side solutions."),
-    createService("full-stack-development", "Full Stack Development", "Web", "Complete web solutions from database to UI."),
+    createService("full-stack-development", "Full Stack Development", "Web", "Complete web solutions from database to UI.", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"),
     createService("nextjs-reactjs", "Next.js / React.js", "Web", "High-performance server-rendered React applications."),
-    createService("ecommerce-development", "E-commerce Development", "Web", "Online stores that drive sales and conversion."),
+    createService("ecommerce-development", "E-commerce Development", "Web", "Online stores that drive sales and conversion.", "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=1200"),
     createService("custom-web-applications", "Custom Web Applications", "Web", "Bespoke web apps for complex requirements."),
 
     // Software Development
@@ -137,13 +137,17 @@ export const services: Service[] = [
     createService("cloud-based-software", "Cloud Based Software", "Software", "SaaS products hosted on the cloud."),
     createService("business-automation-software", "Business Automation Software", "Software", "Automate workflows to save time and cost."),
 
-    // AI & Integration
+    // E-commerce Solutions (New Category Services)
+    createService("shopify-solutions", "Shopify Solutions", "Web", "Custom Shopify themes and apps."),
+    createService("woocommerce-store", "WooCommerce Store", "Web", "Flexible WordPress e-commerce sites."),
+    createService("magento-development", "Magento Development", "Web", "Enterprise-grade e-commerce platforms."),
+    createService("headless-commerce", "Headless Commerce", "Web", "Decoupled architecture for ultimate flexibility."),
+    createService("ecommerce-optimization", "E-commerce Optimization", "Web", "Speed and conversion rate optimization."),
+    
+    // AI (Kept for completeness but moved down/not in mega menu)
     createService("ai-chatbot-development", "AI Chatbot Development", "AI", "Intelligent conversational agents."),
     createService("machine-learning-solutions", "Machine Learning Solutions", "AI", "Predictive models and data analysis."),
-    createService("computer-vision", "Computer Vision", "AI", "Image and video analysis solutions."),
-    createService("api-system-integration", "API & System Integration", "AI", "Connecting disparate systems seamlessly."),
-    createService("automation-ai-tools", "Automation & AI Tools", "AI", "Smart tools to enhance productivity."),
-    createService("data-analytics-ai-models", "Data Analytics & AI Models", "AI", "Transforming data into actionable insights.")
+    createService("computer-vision", "Computer Vision", "AI", "Image and video analysis solutions.")
 ];
 
 export const getServiceBySlug = (slug: string) => services.find(s => s.id === slug);

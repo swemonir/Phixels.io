@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import logo from "@/assets/logo.svg";
 import MegaMenu from "@/components/layout/MegaMenu";
 import { usePopup } from "@/context/PopupContext";
@@ -19,26 +19,41 @@ const menuItems = [
 
 const Navbar = () => {
   const { openPopup } = usePopup();
-  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Handlers for Mega Menu
   const handleMouseEnter = (label: string) => {
-    if (label === "Services") {
-      setIsMegaMenuOpen(true);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+
+    if (label === "Services" || label === "Projects") {
+      setActiveDropdown(label);
     } else {
-      setIsMegaMenuOpen(false);
+      // For other items, we might want to close dropdowns immediately
+      setActiveDropdown(null);
     }
   };
 
   const handleMouseLeave = () => {
-    setIsMegaMenuOpen(false);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 100);
   };
 
   return (
     <div className="navbar bg-white shadow-md px-4 sm:px-8 lg:px-20 xl:px-56 relative z-50">
       {/* LEFT: Logo */}
       <div className="navbar-start w-auto mr-auto">
-        <Link href="/" className="flex items-center">
+        <Link
+          href="/"
+          className="flex items-center"
+          onMouseEnter={() => setActiveDropdown(null)}
+        >
           <Image src={logo} alt="Logo" className="h-8 w-auto sm:h-10" />
         </Link>
       </div>
@@ -91,19 +106,24 @@ const Navbar = () => {
             {menuItems.map((item, index) => (
               <li
                 key={index}
+                className="relative h-full flex items-center"
                 onMouseEnter={() => handleMouseEnter(item.label)}
-                // Only attach mouse leave to the specific item if it's NOT Services,
-                // Services leave is handled by the MegaMenu container logic mostly
+                onMouseLeave={handleMouseLeave}
               >
+                {/* Link/Button */}
                 <Link
-                  className="text-black hover:text-[#FF0000] transition-colors"
                   href={item.link}
+                  className={`flex items-center gap-1 transition-colors ${
+                    activeDropdown === item.label
+                      ? "text-[#FF0000]"
+                      : "text-black hover:text-[#FF0000]"
+                  }`}
                 >
                   {item.label}
-                  {item.hasMegaMenu && (
+                  {(item.label === "Services" || item.label === "Projects") && (
                     <svg
-                      className={`ml-1 h-3 w-3 fill-current transition-transform duration-200 ${
-                        isMegaMenuOpen ? "rotate-180" : ""
+                      className={`h-3 w-3 fill-current transition-transform duration-200 ${
+                        activeDropdown === item.label ? "rotate-180" : ""
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -114,6 +134,26 @@ const Navbar = () => {
                     </svg>
                   )}
                 </Link>
+
+                {/* Projects Dropdown */}
+                {item.label === "Projects" && activeDropdown === "Projects" && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 flex flex-col">
+                    <Link
+                      href="/portfolio"
+                      className="block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors border-b border-gray-50"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Portfolio
+                    </Link>
+                    <Link
+                      href="/case-study"
+                      className="block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Case Study
+                    </Link>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -130,15 +170,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mega Menu Component - Centered/Full Width relative to navbar container usually, but here positioned absolute to parent */}
+      {/* Mega Menu Component */}
       <div
         className="w-full absolute left-0 top-full"
-        onMouseEnter={() => setIsMegaMenuOpen(true)}
+        onMouseEnter={() => handleMouseEnter("Services")}
         onMouseLeave={handleMouseLeave}
       >
         <MegaMenu
-          isOpen={isMegaMenuOpen}
-          onMouseEnter={() => setIsMegaMenuOpen(true)}
+          isOpen={activeDropdown === "Services"}
+          onMouseEnter={() => handleMouseEnter("Services")}
           onMouseLeave={handleMouseLeave}
         />
       </div>

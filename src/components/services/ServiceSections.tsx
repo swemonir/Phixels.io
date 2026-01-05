@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Service } from "@/data/servicesData";
 import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
 import { useServicePopup } from "@/components/services/ServicePopupWrapper";
+import { usePopup } from "@/context/PopupContext";
 
 // Animations
 const fadeInUp = {
@@ -27,8 +28,7 @@ const staggerContainer = {
 // --- Components ---
 
 export const ServiceHero = ({ service }: { service: Service }) => {
-  const { openServicePopup } = useServicePopup();
-
+  const { openPopup } = usePopup();
   return (
     <section className="relative py-20 lg:py-32 bg-gray-900 text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -59,7 +59,7 @@ export const ServiceHero = ({ service }: { service: Service }) => {
             {service.shortDescription}
           </p>
           <button
-            onClick={openServicePopup}
+            onClick={openPopup}
             className="btn bg-red-600 hover:bg-red-700 text-white border-none px-8 py-3 rounded-full text-lg"
           >
             Get a Free Quote
@@ -289,23 +289,29 @@ export const FAQ = ({ service }: { service: Service }) => {
 };
 
 export const TeamList = () => {
-  // Placeholder team data
+  // Placeholder team data with added fields
   const team = [
     {
       name: "Alex Johnson",
       role: "Senior Developer",
+      experience: "8+ Years",
+      skills: ["React", "Node.js", "AWS"],
       image:
         "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200",
     },
     {
       name: "Sarah Williams",
       role: "UI/UX Designer",
+      experience: "6+ Years",
+      skills: ["Figma", "Adobe XD", "Prototyping"],
       image:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
     },
     {
       name: "Michael Chen",
       role: "Project Manager",
+      experience: "10+ Years",
+      skills: ["Agile", "Scrum", "Risk Management"],
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
     },
@@ -317,10 +323,13 @@ export const TeamList = () => {
         <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">
           Meet the Experts
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {team.map((member, index) => (
-            <div key={index} className="text-center group">
-              <div className="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div
+              key={index}
+              className="text-center group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border border-gray-100"
+            >
+              <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-50 shadow-md">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -329,7 +338,22 @@ export const TeamList = () => {
                 />
               </div>
               <h3 className="font-bold text-lg text-gray-900">{member.name}</h3>
-              <p className="text-red-500 font-medium">{member.role}</p>
+              <p className="text-red-500 font-medium mb-3">{member.role}</p>
+
+              <div className="text-sm text-gray-600 mb-2">
+                <strong>Exp:</strong> {member.experience}
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-2 mt-3">
+                {member.skills.map((skill, i) => (
+                  <span
+                    key={i}
+                    className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -338,28 +362,11 @@ export const TeamList = () => {
   );
 };
 
+import { blogPosts } from "@/data/blogData";
+
 export const RelatedBlogPosts = () => {
-  // Placeholder blog data
-  const posts = [
-    {
-      title: "Top 10 Trends in App Development",
-      category: "Development",
-      image:
-        "https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      title: "How AI is Revolutionizing Business",
-      category: "AI",
-      image:
-        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      title: "The Future of Web Design",
-      category: "Design",
-      image:
-        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=400",
-    },
-  ];
+  // Use first 3 posts
+  const posts = blogPosts.slice(0, 3);
 
   return (
     <section className="py-20 bg-white">
@@ -369,30 +376,33 @@ export const RelatedBlogPosts = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100"
+              href={`/blog/${post.id}`}
+              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100 flex flex-col h-full group"
             >
               <div className="relative h-48 w-full">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col grow">
                 <span className="text-xs font-bold text-red-500 uppercase tracking-wider">
                   {post.category}
                 </span>
-                <h3 className="font-bold text-lg mt-2 text-gray-900 leading-tight">
+                <h3 className="font-bold text-lg mt-2 text-gray-900 leading-tight mb-4">
                   {post.title}
                 </h3>
-                <button className="mt-4 text-gray-500 text-sm font-medium hover:text-red-600">
-                  Read More &rarr;
-                </button>
+                <div className="mt-auto">
+                  <button className="text-gray-500 text-sm font-medium group-hover:text-red-600 transition-colors">
+                    Read More &rarr;
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
