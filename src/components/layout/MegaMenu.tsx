@@ -39,11 +39,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="absolute left-0 top-full w-full bg-white shadow-xl border-t border-gray-100 z-50"
+          className="absolute top-full mx-auto w-[77%] bg-white shadow-xl border-t border-gray-100 z-50 left-1/2 -translate-x-1/2 "
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
+          style={{
+            backgroundColor: "transparent",
+          
+          }}
         >
-          <div className="container mx-auto px-4 sm:px-8 lg:px-20 xl:px-32 py-8">
+          <div className="container mx-auto px-4 sm:px-8 lg:px-20 py-8 bg-white rounded-b-xl">
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Left Side: Categories */}
               <div className="w-full lg:w-1/4 border-r border-gray-100 pr-4">
@@ -54,7 +58,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         onClick={() => setActiveCategory(category.title)}
                         className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between transition-all duration-200 ${
                           activeCategory === category.title
-                            ? "bg-red-50 text-red-600 font-bold"
+                            ? "bg-red-50 text-red-600 font-medium"
                             : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium"
                         }`}
                       >
@@ -81,9 +85,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     exit={{ opacity: 0, x: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                    {/* <h3 className="text-2xl font-bold text-gray-800 mb-6">
                       {activeCategory}
-                    </h3>
+                    </h3> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                       {activeCategoryData?.subItems.map((item, subIndex) => (
                         <Link
@@ -92,9 +96,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                           className="group flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-all border border-transparent hover:border-gray-100"
                         >
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-xs font-bold group-hover:bg-red-600 group-hover:text-white transition-colors">
+                            {/* <div className="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-xs  group-hover:bg-red-600 group-hover:text-white transition-colors">
                               {item.label.charAt(0)}
-                            </div>
+                            </div> */}
                             <span className="text-gray-600 font-medium group-hover:text-gray-900">
                               {item.label}
                             </span>
