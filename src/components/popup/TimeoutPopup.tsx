@@ -142,7 +142,7 @@ const TimeoutPopup = () => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-purple-50 rounded-3xl shadow-2xl max-w-6xl w-full flex flex-col md:flex-row relative max-h-[95vh] overflow-hidden">
+      <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-purple-50 rounded-3xl shadow-2xl max-w-6xl w-full flex flex-col relative max-h-[95vh] overflow-hidden">
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -151,356 +151,371 @@ const TimeoutPopup = () => {
           <AiOutlineClose size={18} />
         </button>
 
-        {/* Left Side */}
-        <div className="w-full md:w-[45%] bg-white p-8 flex flex-col relative">
-          {/* Header - Outside flex */}
-          <div className="mb-6">
-            <h2 className="text-xl font-bold text-gray-900 leading-tight">
-              Pause! Before You Press <span className="text-red-500">X</span>,
-              See What You Could Be Missing!
-            </h2>
-          </div>
-
-          {/* Testimonial Carousel */}
-          <div className="flex items-center gap-3 mb-8">
-            <button
-              onClick={prevTestimonial}
-              className="p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors flex-shrink-0"
-            >
-              <FaChevronLeft size={14} className="text-red-500" />
-            </button>
-
-            <div className="flex-1">
-              <div className="text-center mb-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full mx-auto mb-3 border-4 border-gray-100"
-                />
-              </div>
-
-              <p className="text-center text-sm text-gray-700 mb-4 leading-relaxed">
-                {testimonial.text}
-              </p>
-
-              <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-base">
-                  {testimonial.name}
-                </h4>
-                <p className="text-xs text-gray-500 mb-3">{testimonial.role}</p>
-              </div>
-
-              <div className="flex items-center justify-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-gray-900">Clutch</span>
-                  <span className="text-sm font-semibold">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} className="text-yellow-400" size={12} />
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 text-blue-500 text-xs">
-                  <MdVerified size={14} />
-                  <span>Verified Review</span>
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={nextTestimonial}
-              className="p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors flex-shrink-0"
-            >
-              <FaChevronRight size={14} className="text-red-500" />
-            </button>
-          </div>
-
-          {/* Two Column Benefits */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-8">
-            <div>
-              <p className="font-semibold text-gray-800 text-sm mb-3">
-                Our Experts Provide Free:
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-start gap-2 text-xs text-gray-700">
-                  <FaCheckCircle
-                    className="text-red-500 mt-0.5 flex-shrink-0"
-                    size={12}
-                  />
-                  <span>Detailed Project Roadmap</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs text-gray-700">
-                  <FaCheckCircle
-                    className="text-red-500 mt-0.5 flex-shrink-0"
-                    size={12}
-                  />
-                  <span>Preliminary Cost Estimate</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs text-gray-700">
-                  <FaCheckCircle
-                    className="text-red-500 mt-0.5 flex-shrink-0"
-                    size={12}
-                  />
-                  <span>Timeline Breakdown</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs text-gray-700">
-                  <FaCheckCircle
-                    className="text-red-500 mt-0.5 flex-shrink-0"
-                    size={12}
-                  />
-                  <span>Risk Assessment Overview</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <p className="font-semibold text-gray-800 text-sm mb-3">
-                Have a Question? Let's Talk!
-              </p>
-              <div className="space-y-1.5 text-xs text-gray-600">
-                <div className="flex items-center gap-2">
-                  <span className="text-purple-600">📞</span>
-                  <span>(303) 335-0405</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-red-600">✉️</span>
-                  <span>sales@jploft.com</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-blue-600">🇺🇸</span>
-                  <span>
-                    700 N Colorado Blvd, Ste #200
-                    <br />
-                    Denver, CO 80206
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Trusted Brands */}
-          <div className="mt-auto pt-6 border-t border-gray-200">
-            <p className="text-center text-sm font-semibold text-gray-700 mb-4">
-              We are Trusted by
-            </p>
-            <div className="flex items-center justify-center gap-6 flex-wrap">
-              <div className="text-xl font-bold text-gray-800">WFFA</div>
-              <div className="text-base font-semibold text-gray-700">
-                Whirlpool
-              </div>
-              <div className="text-xl font-bold" style={{ color: "#D32F2F" }}>
-                Red Bull
-              </div>
-              <div className="text-xl font-bold text-gray-900">NIKE</div>
-            </div>
-          </div>
+        {/* Header - Centered at top */}
+        <div className="w-full text-center pt-6 pb-4 px-8">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
+            Pause! Before You Press <span className="text-red-500">X</span>, See
+            What You Could Be Missing!
+          </h2>
         </div>
 
-        {/* Right Side - Form */}
-        <div className="w-full md:w-[55%] p-8 bg-white rounded-r-3xl shadow-xl overflow-y-auto">
-          <div className="mb-5">
-            <h3 className="text-base font-bold text-gray-800">
-              We respond promptly, typically within{" "}
-              <span className="text-blue-500">30 minutes</span>
-            </h3>
-            <p className="text-xs text-red-500 mt-1">* Mandatory Field</p>
-          </div>
+        {/* Main Content */}
+        <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
+          {/* Left Side */}
+          <div className="w-full md:w-[40%] bg-white p-8 flex flex-col relative">
+            {/* Testimonial Carousel */}
+            <div className="flex items-center gap-3 mb-8">
+              <button
+                onClick={prevTestimonial}
+                className="p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors flex-shrink-0"
+              >
+                <FaChevronLeft size={14} className="text-red-500" />
+              </button>
 
-          {status === "success" ? (
-            <div className="h-full flex flex-col items-center justify-center text-center min-h-[300px]">
-              <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4">
-                <FaCheckCircle size={32} />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800">
-                Message Sent!
-              </h3>
-              <p className="text-gray-600 mt-2">
-                We'll get back to you shortly.
-              </p>
-            </div>
-          ) : (
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                  placeholder="Enter Full Name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                  placeholder="Enter Email Address"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <div className="flex gap-2">
-                  <select className="border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-black bg-gray-50">
-                    <option>🇧🇩 +880</option>
-                    <option>🇺🇸 +1</option>
-                    <option>🇬🇧 +44</option>
-                    <option>🇮🇳 +91</option>
-                  </select>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                    placeholder="Enter Phone Number"
+              <div className="flex-1">
+                <div className="text-center mb-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-20 h-20 rounded-full mx-auto mb-3 border-4 border-gray-100"
                   />
                 </div>
-              </div>
 
-              {/* Schedule Meeting Field */}
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Schedule Meeting (Optional)
-                </label>
-                <DatePicker
-                  selected={startDate}
-                  onChange={(date: Date | null) => setStartDate(date)}
-                  showTimeSelect
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                  placeholderText="Select Date & Time"
-                  className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                  wrapperClassName="w-full"
-                />
-                <input
-                  type="hidden"
-                  name="meeting_time"
-                  value={startDate ? startDate.toString() : ""}
-                />
-              </div>
+                <p className="text-center text-sm text-gray-700 mb-4 leading-relaxed">
+                  {testimonial.text}
+                </p>
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                  Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  rows={3}
-                  className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black resize-none bg-gray-50"
-                  placeholder="Share Project Details / Overview of Your Idea (Help Us Come Back Stronger)"
-                />
-              </div>
+                <div className="text-center">
+                  <h4 className="font-bold text-gray-900 text-base">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-xs text-gray-500 mb-3">
+                    {testimonial.role}
+                  </p>
+                </div>
 
-              <div className="flex items-center gap-4">
-                <label className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-medium">
-                  <span>📎 Add File</span>
-                  <input
-                    type="file"
-                    onChange={handleFileChange}
-                    className="hidden"
-                  />
-                </label>
-                <span className="text-sm text-gray-600">
-                  {selectedFile ? selectedFile.name : "No file chosen"}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="nda"
-                  checked={formData.protectNDA}
-                  onChange={(e) =>
-                    setFormData({ ...formData, protectNDA: e.target.checked })
-                  }
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <label htmlFor="nda" className="text-sm text-gray-700">
-                  Protect Under NDA
-                </label>
-              </div>
-
-              <div className="flex items-center gap-3 pt-2">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-700 text-sm whitespace-nowrap">
-                    Are you human? <span className="text-red-500">*</span>
-                  </span>
-                  <div className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
-                    <span className="font-bold text-gray-700 text-sm">
-                      {captcha.num1}+{captcha.num2}=
-                    </span>
-                    <input
-                      type="text"
-                      className="w-24 p-1.5 text-center border border-gray-300 rounded-md focus:border-blue-500 outline-none text-sm text-black bg-white"
-                      value={captchaInput}
-                      onChange={(e) => setCaptchaInput(e.target.value)}
-                      placeholder="CAPTCHA Result"
-                      required
-                    />
+                <div className="flex items-center justify-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-gray-900">Clutch</span>
+                    <span className="text-sm font-semibold">5.0</span>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar key={i} className="text-yellow-400" size={12} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 text-blue-500 text-xs">
+                    <MdVerified size={14} />
+                    <span>Verified Review</span>
                   </div>
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  {status === "submitting" ? "Sending..." : "Submit"}
-                </button>
               </div>
 
-              {errorMsg && (
-                <p className="text-red-500 text-xs text-center mt-2">
-                  {errorMsg}
-                </p>
-              )}
-            </form>
-          )}
-
-          {/* Rating */}
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <div className="flex items-center justify-center gap-2 text-sm">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400" size={18} />
-                ))}
-              </div>
-              <span className="text-gray-700">
-                Rated <span className="font-bold text-blue-600">4.8</span> by{" "}
-                <span className="font-bold text-blue-600">1000+</span> Happy
-                Customers.
-              </span>
+              <button
+                onClick={nextTestimonial}
+                className="p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors flex-shrink-0"
+              >
+                <FaChevronRight size={14} className="text-red-500" />
+              </button>
             </div>
-            <p className="text-center text-xs text-gray-500 mt-1">
-              <span className="font-bold text-blue-600">10+ Years</span> of
-              Industry-experience.
-            </p>
+
+            {/* Two Column Benefits */}
+            <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-8">
+              <div>
+                <p className="font-semibold text-gray-800 text-sm mb-3">
+                  Our Experts Provide Free:
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2 text-xs text-gray-700">
+                    <FaCheckCircle
+                      className="text-red-500 mt-0.5 flex-shrink-0"
+                      size={12}
+                    />
+                    <span>Detailed Project Roadmap</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-gray-700">
+                    <FaCheckCircle
+                      className="text-red-500 mt-0.5 flex-shrink-0"
+                      size={12}
+                    />
+                    <span>Preliminary Cost Estimate</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-gray-700">
+                    <FaCheckCircle
+                      className="text-red-500 mt-0.5 flex-shrink-0"
+                      size={12}
+                    />
+                    <span>Timeline Breakdown</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-xs text-gray-700">
+                    <FaCheckCircle
+                      className="text-red-500 mt-0.5 flex-shrink-0"
+                      size={12}
+                    />
+                    <span>Risk Assessment Overview</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-semibold text-gray-800 text-sm mb-3">
+                  Have a Question? Let's Talk!
+                </p>
+                <div className="space-y-1.5 text-xs text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <span className="text-purple-600">📞</span>
+                    <span>(303) 335-0405</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-red-600">✉️</span>
+                    <span>sales@jploft.com</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-600">🇺🇸</span>
+                    <span>
+                      700 N Colorado Blvd, Ste #200
+                      <br />
+                      Denver, CO 80206
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trusted Brands */}
+            <div className="mt-auto pt-6 border-t border-gray-200">
+              <p className="text-center text-sm font-semibold text-gray-700 mb-4">
+                We are Trusted by
+              </p>
+              <div className="flex items-center justify-center gap-6 flex-wrap">
+                <div className="text-xl font-bold text-gray-800">WFFA</div>
+                <div className="text-base font-semibold text-gray-700">
+                  Whirlpool
+                </div>
+                <div className="text-xl font-bold" style={{ color: "#D32F2F" }}>
+                  Red Bull
+                </div>
+                <div className="text-xl font-bold text-gray-900">NIKE</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Form */}
+          <div className="w-full md:w-[60%] p-8 bg-white overflow-y-auto border">
+            <div className="border shadow-lg rounded-lg px-6 py-8 m-2">
+              <div className="mb-5">
+                <h3 className="text-base font-bold text-gray-800">
+                  We respond promptly, typically within{" "}
+                  <span className="text-blue-500">30 minutes</span>
+                </h3>
+                <p className="text-xs text-red-500 mt-1">* Mandatory Field</p>
+              </div>
+
+              {status === "success" ? (
+                <div className="h-full flex flex-col items-center justify-center text-center min-h-[300px]">
+                  <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4">
+                    <FaCheckCircle size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">
+                    Message Sent!
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    We'll get back to you shortly.
+                  </p>
+                </div>
+              ) : (
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                      placeholder="Enter Full Name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Email <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                      placeholder="Enter Email Address"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <div className="flex gap-2">
+                      <select className="border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-black bg-gray-50">
+                        <option>🇧🇩 +880</option>
+                        <option>🇺🇸 +1</option>
+                        <option>🇬🇧 +44</option>
+                        <option>🇮🇳 +91</option>
+                      </select>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                        placeholder="Enter Phone Number"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Schedule Meeting Field */}
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Schedule Meeting
+                    </label>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date: Date | null) => setStartDate(date)}
+                      showTimeSelect
+                      dateFormat="MMMM d, yyyy h:mm aa"
+                      placeholderText="Select Date & Time"
+                      className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                      wrapperClassName="w-full"
+                    />
+                    <input
+                      type="hidden"
+                      name="meeting_time"
+                      value={startDate ? startDate.toString() : ""}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      Message <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      rows={3}
+                      className="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black resize-none bg-gray-50"
+                      placeholder="Share Project Details / Overview of Your Idea (Help Us Come Back Stronger)"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-4 justify-between">
+                    <div className="flex items-center gap-4">
+                      <label className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-medium">
+                        <span>📎 Add File</span>
+                        <input
+                          type="file"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                      </label>
+                      <span className="text-sm text-gray-600">
+                        {selectedFile ? selectedFile.name : "No file chosen"}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="nda"
+                        checked={formData.protectNDA}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            protectNDA: e.target.checked,
+                          })
+                        }
+                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <label htmlFor="nda" className="text-sm text-gray-700">
+                        Protect Under NDA
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-gray-700 text-sm whitespace-nowrap">
+                        Are you human? <span className="text-git a-500">*</span>
+                      </span>
+                      <div className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
+                        <span className="font-bold text-gray-700 text-sm">
+                          {captcha.num1}+{captcha.num2}=
+                        </span>
+                        <input
+                          type="text"
+                          className="w-24 p-1.5 text-center border border-gray-300 rounded-md focus:border-blue-500 outline-none text-sm text-black bg-white"
+                          value={captchaInput}
+                          onChange={(e) => setCaptchaInput(e.target.value)}
+                          placeholder="CAPTCHA Result"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {status === "submitting" ? "Sending..." : "Submit"}
+                    </button>
+                  </div>
+
+                  {errorMsg && (
+                    <p className="text-red-500 text-xs text-center mt-2">
+                      {errorMsg}
+                    </p>
+                  )}
+                </form>
+              )}
+            </div>
+            {/* Rating */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center justify-center gap-2 text-sm">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400" size={18} />
+                  ))}
+                </div>
+                <span className="text-gray-700">
+                  Rated <span className="font-bold text-blue-600">4.8</span> by{" "}
+                  <span className="font-bold text-blue-600">1000+</span> Happy
+                  Customers.
+                </span>
+              </div>
+              <p className="text-center text-xs text-gray-500 mt-1">
+                <span className="font-bold text-blue-600">10+ Years</span> of
+                Industry-experience.
+              </p>
+            </div>
           </div>
         </div>
       </div>
