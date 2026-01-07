@@ -39,7 +39,7 @@ export const ServiceHero = ({ service }: { service: Service }) => {
           className="object-cover opacity-20"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-900/80 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-gray-900/80 to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -59,7 +59,7 @@ export const ServiceHero = ({ service }: { service: Service }) => {
             {service.shortDescription}
           </p>
           <button
-            onClick={openPopup}
+            onClick={() => openPopup()}
             className="btn bg-red-600 hover:bg-red-700 text-white border-none px-8 py-3 rounded-full text-lg"
           >
             Get a Free Quote
@@ -91,7 +91,7 @@ export const ServiceDetails = ({ service }: { service: Service }) => {
                   key={index}
                   className="flex items-center space-x-3 text-gray-700"
                 >
-                  <FaCheckCircle className="text-red-600 flex-shrink-0" />
+                  <FaCheckCircle className="text-red-600 shrink-0" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -102,7 +102,7 @@ export const ServiceDetails = ({ service }: { service: Service }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+            className="relative h-100 w-full rounded-2xl overflow-hidden shadow-2xl"
           >
             <Image
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000"
