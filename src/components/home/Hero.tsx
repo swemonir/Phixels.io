@@ -79,7 +79,7 @@ const Hero = () => {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
               <button
-                onClick={openPopup}
+                onClick={() => openPopup("book-call")}
                 className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
               >
                 <IoVideocamSharp size={20} />
@@ -87,10 +87,10 @@ const Hero = () => {
               </button>
 
               <button
-                onClick={openPopup}
+                onClick={() => openPopup("start-project")}
                 className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md w-full sm:w-auto transition-colors border border-[#ED1F24]"
               >
-               <FaMessage size={20} color="#ED1F24" />
+                <FaMessage size={20} color="#ED1F24" />
                 <span className="font-medium">Start a Project</span>
               </button>
             </div>

@@ -62,7 +62,7 @@ const Navbar = () => {
       {/* RIGHT: Mobile Menu (Visible on small screens) */}
       <div className="navbar-end lg:hidden flex w-auto">
         <button
-          onClick={openPopup}
+          onClick={() => openPopup("book-call")}
           className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
         >
           <IoVideocamSharp size={20} />
@@ -163,7 +163,7 @@ const Navbar = () => {
           {/* Desktop CTA Button */}
           <div className="ml-6">
             <button
-              onClick={openPopup}
+              onClick={() => openPopup("book-call")}
               className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
             >
               <IoVideocamSharp size={20} />
