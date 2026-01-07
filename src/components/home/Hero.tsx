@@ -13,7 +13,7 @@ import upwork from "@/assets/review/upwork.svg";
 import freelenter from "@/assets/review/freelencer.svg";
 import google from "@/assets/review/google.svg";
 
-import { FaStar } from "react-icons/fa6";
+import { FaMessage, FaStar } from "react-icons/fa6";
 
 const ReviewItem = ({
   title,
@@ -47,6 +47,7 @@ const ReviewItem = ({
 );
 
 import { usePopup } from "@/context/PopupContext";
+import { IoVideocamSharp } from "react-icons/io5";
 
 const Hero = () => {
   const { openPopup } = usePopup();
@@ -81,16 +82,16 @@ const Hero = () => {
                 onClick={openPopup}
                 className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
               >
-                <TbMessageFilled size={20} />
-                <span className="font-medium">Get Started</span>
+                <IoVideocamSharp size={20} />
+                <span className="font-medium">Book a Call</span>
               </button>
 
               <button
                 onClick={openPopup}
-                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
+                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md w-full sm:w-auto transition-colors border border-[#ED1F24]"
               >
-                <TbMailOpenedFilled size={20} color="#ED1F24" />
-                <span className="font-medium">Request a Quote</span>
+               <FaMessage size={20} color="#ED1F24" />
+                <span className="font-medium">Start a Project</span>
               </button>
             </div>
 

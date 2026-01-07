@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import logo from "@/assets/logo.svg";
 import MegaMenu from "@/components/layout/MegaMenu";
 import { usePopup } from "@/context/PopupContext";
+import { IoVideocamSharp } from "react-icons/io5";
 
 const menuItems = [
   { label: "Home", link: "/" },
@@ -62,9 +63,10 @@ const Navbar = () => {
       <div className="navbar-end lg:hidden flex w-auto">
         <button
           onClick={openPopup}
-          className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 mr-2 text-xs"
+          className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
         >
-          Get Free Quote
+          <IoVideocamSharp size={20} />
+          <span className="font-medium">Book a Call</span>
         </button>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle text-black">
@@ -162,9 +164,10 @@ const Navbar = () => {
           <div className="ml-6">
             <button
               onClick={openPopup}
-              className="btn btn-sm bg-[#FF0000] text-white border-none hover:bg-red-700 px-6 rounded-md"
+              className="flex items-center justify-center gap-2 bg-[#ED1F24] hover:bg-red-700 text-white px-6 py-3 rounded-md w-full sm:w-auto transition-colors"
             >
-              Get Free Quote
+              <IoVideocamSharp size={20} />
+              <span className="font-medium">Book a Call</span>
             </button>
           </div>
         </div>

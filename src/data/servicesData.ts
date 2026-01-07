@@ -77,8 +77,8 @@ const createService = (id: string, title: string, category: Service['category'],
     shortDescription: desc,
     fiverrUrl: "https://www.fiverr.com/monitvi",
     rating: 5.0,
-    reviews: Math.floor(Math.random() * 100) + 10,
-    price: `$${Math.floor(Math.random() * 500) + 100}`,
+    reviews: 120,
+    price: `$499`,
     heroImage: customImage || "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200", // Professional office/tech default
     description: `We specialize in ${title}. ${desc} Our expert team delivers high-quality solutions tailored to your business needs.`,
     features: [
@@ -127,7 +127,7 @@ export const services: Service[] = [
     createService("backend-development", "Backend Development", "Web", "Robust and scalable server-side solutions."),
     createService("full-stack-development", "Full Stack Development", "Web", "Complete web solutions from database to UI.", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"),
     createService("nextjs-reactjs", "Next.js / React.js", "Web", "High-performance server-rendered React applications."),
-    createService("ecommerce-development", "E-commerce Development", "Web", "Online stores that drive sales and conversion.", "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=1200"),
+    createService("ecommerce-development", "E-commerce Development", "Web", "Online stores that drive sales and conversion.", "https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&q=80&w=1200"),
     createService("custom-web-applications", "Custom Web Applications", "Web", "Bespoke web apps for complex requirements."),
 
     // Software Development
