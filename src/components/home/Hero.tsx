@@ -128,7 +128,7 @@ const Hero = () => {
 
           {/* Right Card (Reviews) */}
           <div className="w-full lg:w-1/4 max-w-md mx-auto lg:mx-0 lg:mt-20">
-            <div className="bg-[#1A1829]/40 border border-[#2A2A2A] backdrop-blur-sm rounded-xl p-6 shadow-2xl border border-white/30">
+            <div className="bg-[#1A1829]/40  border-[#2A2A2A] backdrop-blur-sm rounded-xl p-6 shadow-2xl border">
               <ReviewItem title="Reviewed On" logo={fiverr} />
               <ReviewItem title="Verified By" logo={google} />
               <ReviewItem title="Verified By" logo={freelenter} />

@@ -64,8 +64,8 @@ const Step2Calendar = ({
     };
 
     return (
-        <div className="w-full h-full p-8 overflow-y-auto custom-scrollbar bg-white m-auto">
-            <div className="max-w-md mx-auto">
+        <div className="w-full h-full p-8 overflow-y-auto custom-scrollbar bg-white flex items-center justify-center">
+            <div className="max-w-md mx-auto w-full">
                 <div className="bg-white rounded-lg p-6 border shadow-sm">
                     <div className="flex items-center justify-between mb-6">
                         <button

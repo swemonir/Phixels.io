@@ -40,7 +40,7 @@ const Step1Form = ({
             <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
                 <div className="border shadow-lg rounded-lg px-6 py-8">
                     <div className="mb-5">
-                        <h3 className="text-base font-bold text-gray-800">
+                        <h3 className="text-xl font-bold text-gray-800">
                             {flowType === "start-project"
                                 ? "Let's Connect"
                                 : "We respond promptly, typically within"}{" "}
@@ -76,56 +76,62 @@ const Step1Form = ({
                             />
                         </div>
 
-                        <div>
-                            <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                                Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                value={formData.email}
-                                onChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        email: e.target.value,
-                                    })
-                                }
-                                className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                                placeholder="Enter Email Address"
-                            />
-                        </div>
+                        <div className="flex gap-4 justify-between items-center ">
 
-                        <div>
-                            <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                                Phone Number <span className="text-red-500">*</span>
-                            </label>
-                            <div className="flex gap-2">
-                                <select className="border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-black bg-gray-50">
-                                    <option>🇧🇩 +880</option>
-                                    <option>🇺🇸 +1</option>
-                                    <option>🇬🇧 +44</option>
-                                    <option>🇮🇳 +91</option>
-                                </select>
+
+                            <div className="flex-1">
+                                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                                    Email <span className="text-red-500">*</span>
+                                </label>
                                 <input
-                                    type="tel"
-                                    name="phone"
+                                    type="email"
+                                    name="email"
                                     required
-                                    value={formData.phone}
+                                    value={formData.email}
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,
-                                            phone: e.target.value,
+                                            email: e.target.value,
                                         })
                                     }
-                                    className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                                    placeholder="Enter Phone Number"
+                                    className="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                                    placeholder="Enter Email Address"
                                 />
                             </div>
-                        </div>
 
+                            <div className="flex-1">
+                                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                                    Phone Number <span className="text-red-500">*</span>
+                                </label>
+                                <div className="flex gap-2">
+                                    <div className="border border-gray-300 rounded-lg p-2.5">
+
+                                        <select className="text-base focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-black bg-gray-50">
+                                            <option>🇧🇩 +880</option>
+                                            <option>🇺🇸 +1</option>
+                                            <option>🇬🇧 +44</option>
+                                            <option>🇮🇳 +91</option>
+                                        </select>
+                                    </div>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        required
+                                        value={formData.phone}
+                                        onChange={(e) =>
+                                            setFormData({
+                                                ...formData,
+                                                phone: e.target.value,
+                                            })
+                                        }
+                                        className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
+                                        placeholder="Enter Phone Number"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         <div>
-                            <label className="block text-sm font-bold text-gray-700 mb-2">
+                            <label className="block text-xs font-semibold text-gray-700 mb-1.5">
                                 Project Budget
                             </label>
                             <div className="flex flex-wrap gap-2 text-xs text-gray-600">
@@ -175,7 +181,7 @@ const Step1Form = ({
 
                         <div className="flex items-center gap-4">
                             <label className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-medium">
-                                <span>📎 Add File</span>
+                                <span>Add File</span>
                                 <input
                                     type="file"
                                     onChange={handleFileChange}

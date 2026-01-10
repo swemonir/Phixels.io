@@ -44,7 +44,7 @@ const TimeoutPopup = () => {
   useEffect(() => {
     if (!isOpen) {
       const timer = setTimeout(() => {
-        // Ensure we don't disrupt if user is doing something else? 
+        // Ensure we don't disrupt if user is doing something else?
         // Detailed requirements said "automatically reappear".
         // We'll stick to simple timeout for now.
         openPopup("timeout");
@@ -74,7 +74,12 @@ const TimeoutPopup = () => {
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would integrate EmailJS or API call
-    console.log("Submitting Booking:", { ...initialFormData, ...bookingFormData, selectedDate, selectedTimeSlot });
+    console.log("Submitting Booking:", {
+      ...initialFormData,
+      ...bookingFormData,
+      selectedDate,
+      selectedTimeSlot,
+    });
 
     // Simulate specific successful submission
     handleNext();
@@ -83,12 +88,12 @@ const TimeoutPopup = () => {
   // Populate booking form data from initial form data if moving from step 1
   useEffect(() => {
     if (initialFormData.email || initialFormData.name) {
-      setBookingFormData(prev => ({
+      setBookingFormData((prev) => ({
         ...prev,
         name: initialFormData.name || prev.name,
         email: initialFormData.email || prev.email,
         phone: initialFormData.phone || prev.phone,
-        message: initialFormData.message || prev.message
+        message: initialFormData.message || prev.message,
       }));
     }
   }, [initialFormData]);
@@ -107,7 +112,7 @@ const TimeoutPopup = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] md:h-[95vh] flex flex-col overflow-hidden relative"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] md:h-[88vh] flex flex-col overflow-hidden relative"
           >
             {/* Close Button */}
             <button
@@ -127,7 +132,7 @@ const TimeoutPopup = () => {
             {/* Content Container */}
             <div className="flex flex-1 w-full overflow-hidden relative">
               {/* Left Side Panel - Hidden on mobile, visible on medium+ screens */}
-              <div className="hidden md:block w-[40%] h-full">
+              <div className="hidden md:block w-[40%]  h-auto mt-14">
                 <LeftSidePanel />
               </div>
 
