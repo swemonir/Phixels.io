@@ -69,7 +69,7 @@ const Step4Confirm = ({
                   name: e.target.value,
                 })
               }
-              className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all text-black bg-white"
+              className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-white"
               placeholder="Enter your full name"
             />
           </div>
@@ -89,7 +89,7 @@ const Step4Confirm = ({
                     email: e.target.value,
                   })
                 }
-                className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all text-black bg-white"
+                className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-white"
                 placeholder="Enter your email address"
               />
             </div>
@@ -107,7 +107,7 @@ const Step4Confirm = ({
                     phone: e.target.value,
                   })
                 }
-                className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all text-black bg-white"
+                className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-white"
                 placeholder="Enter phone number"
               />
             </div>
@@ -126,14 +126,14 @@ const Step4Confirm = ({
                 })
               }
               rows={4}
-              className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition-all text-black resize-none bg-white"
+              className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black resize-none bg-white"
               placeholder="Share any details..."
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg"
+            className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg"
           >
             Book event
           </button>
@@ -143,7 +143,7 @@ const Step4Confirm = ({
             onClick={onBack}
             className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-lg transition-all"
           >
-            Cancel
+            Back
           </button>
         </form>
       </div>

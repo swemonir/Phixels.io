@@ -10,7 +10,7 @@ import Step2Calendar from "./steps/Step2Calendar";
 import Step3Time from "./steps/Step3Time";
 import Step4Confirm from "./steps/Step4Confirm";
 import Step5Success from "./steps/Step5Success";
-import { FaTimes } from "react-icons/fa";
+import { FaStar, FaTimes } from "react-icons/fa";
 
 const TimeoutPopup = () => {
   const { isOpen, closePopup, flowType, openPopup } = usePopup();
@@ -154,6 +154,7 @@ const TimeoutPopup = () => {
                       selectedDate={selectedDate}
                       setSelectedDate={setSelectedDate}
                       onNext={handleNext}
+                      onBack={handleBack}
                     />
                   )}
                   {step === 3 && (
@@ -162,6 +163,7 @@ const TimeoutPopup = () => {
                       selectedTimeSlot={selectedTimeSlot}
                       setSelectedTimeSlot={setSelectedTimeSlot}
                       onNext={handleNext}
+                      onBack={handleBack}
                       bookedSlots={bookedSlots}
                     />
                   )}
@@ -185,6 +187,32 @@ const TimeoutPopup = () => {
                       initialFormData={initialFormData}
                     />
                   )}
+
+                </div>
+
+                {/* rating  */}
+                <div className="mt-0 p-8 border-t border-gray-200 shrink-0">
+                  <div className="flex items-center justify-center gap-2 text-sm">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar
+                          key={i}
+                          className="text-yellow-400"
+                          size={18}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-gray-700">
+                      Rated{" "}
+                      <span className="font-bold text-blue-600">4.8</span> by{" "}
+                      <span className="font-bold text-blue-600">1000+</span>{" "}
+                      Happy Customers.
+                    </span>
+                  </div>
+                  <p className="text-center text-xs text-gray-500 mt-1">
+                    <span className="font-bold text-blue-600">10+ Years</span>{" "}
+                    of Industry-experience.
+                  </p>
                 </div>
               </div>
             </div>

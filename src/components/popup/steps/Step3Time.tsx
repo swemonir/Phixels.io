@@ -6,6 +6,7 @@ interface Step3TimeProps {
   selectedTimeSlot: string;
   setSelectedTimeSlot: (time: string) => void;
   onNext: () => void;
+  onBack: () => void;
   bookedSlots: BookedSlot[];
 }
 
@@ -14,6 +15,7 @@ const Step3Time = ({
   selectedTimeSlot,
   setSelectedTimeSlot,
   onNext,
+  onBack,
   bookedSlots,
 }: Step3TimeProps) => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -73,7 +75,7 @@ const Step3Time = ({
             Select a time for your call.
           </p>
 
-          <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+          <div className="space-y-2 max-h-75 overflow-y-auto pr-2 custom-scrollbar">
             {availableTimeSlots.length > 0 ? (
               availableTimeSlots.map((time) => (
                 <button
@@ -81,8 +83,8 @@ const Step3Time = ({
                   onClick={() => setSelectedTimeSlot(time)}
                   className={`w-full py-3 px-4 rounded-lg text-sm font-medium transition-all ${
                     selectedTimeSlot === time
-                      ? "bg-purple-500 text-white"
-                      : "bg-gray-50 text-gray-700 hover:bg-purple-100"
+                      ? "bg-red-500 text-white"
+                      : "bg-gray-50 text-gray-700 hover:bg-red-100"
                   }`}
                 >
                   {time}
@@ -99,13 +101,21 @@ const Step3Time = ({
             <p className="text-red-500 text-sm mt-4 text-center">{errorMsg}</p>
           )}
 
-          <button
-            onClick={handleNext}
-            disabled={!selectedTimeSlot}
-            className="w-full mt-6 bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Next
-          </button>
+          <div className="flex gap-3 mt-6">
+            <button
+              onClick={onBack}
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg transition-all"
+            >
+              Back
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={!selectedTimeSlot}
+              className="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
