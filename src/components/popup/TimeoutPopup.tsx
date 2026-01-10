@@ -23,15 +23,20 @@ const TimeoutPopup = () => {
     message: "",
     fileName: "",
   });
-  const [bookingFormData, setBookingFormData] = useState<BookingFormData>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState("");
   const [bookedSlots, setBookedSlots] = useState<BookedSlot[]>([]);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  // Revoke preview URL on close or change
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
   // Reset step when popup opens or flow type changes
   useEffect(() => {
@@ -44,9 +49,6 @@ const TimeoutPopup = () => {
   useEffect(() => {
     if (!isOpen) {
       const timer = setTimeout(() => {
-        // Ensure we don't disrupt if user is doing something else?
-        // Detailed requirements said "automatically reappear".
-        // We'll stick to simple timeout for now.
         openPopup("timeout");
       }, 60000); // 60 seconds
       return () => clearTimeout(timer);
@@ -73,30 +75,13 @@ const TimeoutPopup = () => {
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would integrate EmailJS or API call
     console.log("Submitting Booking:", {
       ...initialFormData,
-      ...bookingFormData,
       selectedDate,
       selectedTimeSlot,
     });
-
-    // Simulate specific successful submission
     handleNext();
   };
-
-  // Populate booking form data from initial form data if moving from step 1
-  useEffect(() => {
-    if (initialFormData.email || initialFormData.name) {
-      setBookingFormData((prev) => ({
-        ...prev,
-        name: initialFormData.name || prev.name,
-        email: initialFormData.email || prev.email,
-        phone: initialFormData.phone || prev.phone,
-        message: initialFormData.message || prev.message,
-      }));
-    }
-  }, [initialFormData]);
 
   return (
     <AnimatePresence>
@@ -123,7 +108,7 @@ const TimeoutPopup = () => {
             </button>
 
             {/* Header Section */}
-            <div className="w-full text-center shrink-0 relative px-12 mt-1">
+            <div className="w-full text-center shrink-0 relative px-12 p-3">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Pause! Before You Press X, See What You Could Be Missing!
               </h2>
@@ -147,6 +132,10 @@ const TimeoutPopup = () => {
                       setFormData={setInitialFormData}
                       onNext={handleNext}
                       flowType={flowType}
+                      selectedFile={selectedFile}
+                      setSelectedFile={setSelectedFile}
+                      previewUrl={previewUrl}
+                      setPreviewUrl={setPreviewUrl}
                     />
                   )}
                   {step === 2 && (
@@ -169,13 +158,17 @@ const TimeoutPopup = () => {
                   )}
                   {step === 4 && (
                     <Step4Confirm
-                      formData={bookingFormData}
-                      setFormData={setBookingFormData}
+                      formData={initialFormData}
+                      setFormData={setInitialFormData}
                       selectedDate={selectedDate}
                       selectedTimeSlot={selectedTimeSlot}
                       onSubmit={handleBookingSubmit}
                       onBack={handleBack}
                       flowType={flowType}
+                      selectedFile={selectedFile}
+                      setSelectedFile={setSelectedFile}
+                      previewUrl={previewUrl}
+                      setPreviewUrl={setPreviewUrl}
                     />
                   )}
                   {step === 5 && (
@@ -183,11 +176,9 @@ const TimeoutPopup = () => {
                       flowType={flowType}
                       selectedDate={selectedDate}
                       selectedTimeSlot={selectedTimeSlot}
-                      bookingFormData={bookingFormData}
                       initialFormData={initialFormData}
                     />
                   )}
-
                 </div>
 
                 {/* rating  */}
@@ -195,17 +186,12 @@ const TimeoutPopup = () => {
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <FaStar
-                          key={i}
-                          className="text-yellow-400"
-                          size={18}
-                        />
+                        <FaStar key={i} className="text-yellow-400" size={18} />
                       ))}
                     </div>
                     <span className="text-gray-700">
-                      Rated{" "}
-                      <span className="font-bold text-blue-600">4.8</span> by{" "}
-                      <span className="font-bold text-blue-600">1000+</span>{" "}
+                      Rated <span className="font-bold text-blue-600">4.8</span>{" "}
+                      by <span className="font-bold text-blue-600">1000+</span>{" "}
                       Happy Customers.
                     </span>
                   </div>

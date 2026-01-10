@@ -134,7 +134,7 @@ const Step2Calendar = ({
                       : isPast
                       ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                       : isToday
-                      ? "bg-purple-100 text-red-500 hover:bg-red-200"
+                      ? "bg-red-100 text-red-500 hover:bg-red-200"
                       : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                   }`}
                 >
