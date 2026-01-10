@@ -182,7 +182,7 @@ const TimeoutPopup = () => {
                 </div>
 
                 {/* rating  */}
-                <div className="mt-0 p-8 border-t border-gray-200 shrink-0">
+                <div className="mt-0 p-8 shrink-0">
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
