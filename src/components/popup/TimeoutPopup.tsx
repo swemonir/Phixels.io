@@ -56,14 +56,14 @@ const TimeoutPopup = () => {
   }, [isOpen, openPopup]);
 
   // Auto-close on Success
-  // useEffect(() => {
-  //   if (step === 5) {
-  //     const timer = setTimeout(() => {
-  //       closePopup();
-  //     }, 5000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [step, closePopup]);
+  useEffect(() => {
+    if (step === 5) {
+      const timer = setTimeout(() => {
+        closePopup();
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [step, closePopup]);
 
   const handleNext = () => {
     setStep((prev) => prev + 1);
@@ -97,12 +97,12 @@ const TimeoutPopup = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
+            className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
           >
             {/* Close Button */}
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 z-20 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors text-gray-500 hover:text-gray-700"
+              className="absolute top-4 right-4 z-20 p-2 bg-red-500 hover:bg-red-600 rounded-full transition-colors text-white hover:text-white"
             >
               <FaTimes size={16} />
             </button>
@@ -122,10 +122,10 @@ const TimeoutPopup = () => {
               </div>
 
               {/* Right Side Content */}
-              <div className="w-full md:w-[50%] h-auto flex flex-col relative bg-white ">
+              <div className="w-full md:w-[50%] h-auto flex flex-col relative bg-transparent ">
                 {/* Mobile Header (optional, usually steps have their own headers) */}
 
-                <div className="flex-1 overflow-hidden h-[90%] justify-center items-center">
+                <div className="flex-1 overflow-hidden h-[90%] justify-center items-center bg-transparent">
                   {step === 1 && (
                     <Step1Form
                       formData={initialFormData}

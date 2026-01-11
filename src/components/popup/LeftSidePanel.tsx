@@ -8,6 +8,12 @@ import {
 import { MdVerified } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 
+import faca from "@/assets/trusted/faca.svg";
+import data from "@/assets/trusted/datadojo.svg";
+import revo from "@/assets/trusted/revo.svg";
+import global from "@/assets/trusted/global.svg";
+import Image from "next/image";
+
 const testimonials = [
   {
     name: "Sarah Jenkins",
@@ -67,7 +73,7 @@ const LeftSidePanel = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <div className="w-full md:w-full bg-white p-10 flex flex-col relative h-full ">
+    <div className="w-full md:w-full bg-transparent p-10 flex flex-col relative h-full ">
       {/* Testimonial Carousel */}
       <div className="flex items-center gap-5 mb-8 relative">
         <button
@@ -111,9 +117,9 @@ const LeftSidePanel = () => {
                 <p className="text-xs text-gray-500 mb-3">{testimonial.role}</p>
               </div>
 
-              <div className="flex items-center justify-center gap-4">
-                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-full">
-                  <span className="font-bold text-gray-900 text-xs">
+              <div className="flex items-center justify-center gap-4 ">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black">
+                  <span className="font-bold text-xs text-white">
                     Fiverr
                   </span>
                   <span className="text-xs font-semibold">5.0</span>
@@ -139,8 +145,8 @@ const LeftSidePanel = () => {
       {/* Two Column Benefits */}
       <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-8 mt-4">
         <div>
-          <p className="font-semibold text-gray-800 text-sm mb-3">
-            Our Experts Provide Free:
+          <p className="font-semibold text-gray-800 text-sm mb-3 ">
+            Unlock $1,000 Worth of Value 100% Free:
           </p>
           <div className="space-y-2">
             <div className="flex items-start gap-2 text-xs text-gray-700">
@@ -148,28 +154,28 @@ const LeftSidePanel = () => {
                 className="text-red-500 mt-0.5 shrink-0"
                 size={12}
               />
-              <span>Detailed Project Roadmap</span>
+              <span>Detailed Execution Roadmap.</span>
             </div>
             <div className="flex items-start gap-2 text-xs text-gray-700">
               <FaCheckCircle
                 className="text-red-500 mt-0.5 shrink-0"
                 size={12}
               />
-              <span>Preliminary Cost Estimate</span>
+              <span>Preliminary Budget Plan.</span>
             </div>
             <div className="flex items-start gap-2 text-xs text-gray-700">
               <FaCheckCircle
                 className="text-red-500 mt-0.5 shrink-0"
                 size={12}
               />
-              <span>Timeline Breakdown</span>
+              <span>Go-to-Market Timeline.</span>
             </div>
             <div className="flex items-start gap-2 text-xs text-gray-700">
               <FaCheckCircle
                 className="text-red-500 mt-0.5 shrink-0"
                 size={12}
               />
-              <span>Risk Assessment Overview</span>
+              <span>Risk & Scalability Assessment.</span>
             </div>
           </div>
         </div>
@@ -181,36 +187,48 @@ const LeftSidePanel = () => {
           <div className="space-y-1.5 text-xs text-gray-600">
             <div className="flex items-center gap-2">
               <span className="text-red-600">📞</span>
-              <span>(303) 335-0405</span>
+              <span>+880 1723 289090</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-red-600">✉️</span>
-              <span>sales@jploft.com</span>
+              <span>phixels.io@gmail.com</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-600">🇺🇸</span>
-              <span>
-                700 N Colorado Blvd, Ste #200
-                <br />
-                Denver, CO 80206
-              </span>
+              <span className="text-blue-600">BD</span>
+              <span>112/2 Mohakhali, Dhaka, Bangladesh.</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Trusted Brands */}
-      <div className=" mt-14 pt-6 ">
-        <p className="text-center text-sm font-semibold text-gray-700 mb-4">
+      {/* Trusted By */}
+      <div className="mt-5 bg-black px-6 pb-6 pt-4 rounded-2xl border-2 border-white/50 box-border">
+        <p className="text-lg font-medium text-white text-center ">
           We are Trusted by
         </p>
-        <div className="flex items-center justify-center gap-6 flex-wrap">
-          <div className="text-xl font-bold text-gray-800">WFFA</div>
-          <div className="text-base font-semibold text-gray-700">Whirlpool</div>
-          <div className="text-xl font-bold" style={{ color: "#D32F2F" }}>
-            Red Bull
-          </div>
-          <div className="text-xl font-bold text-gray-900">NIKE</div>
+
+        <div className="flex items-center justify-between  mt-4">
+          <Image
+            src={faca}
+            alt="faca"
+            className="h-6 w-auto mix-blend-screen"
+          />
+          <Image
+            src={data}
+            alt="data"
+            className="h-6 w-auto mix-blend-screen"
+          />
+          <Image
+            src={revo}
+            alt="revo"
+            className="h-6 w-auto mix-blend-screen"
+          />
+          <Image
+            src={global}
+            alt="global"
+            className="h-6 w-auto mix-blend-screen"
+          />
         </div>
       </div>
     </div>

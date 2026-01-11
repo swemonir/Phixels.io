@@ -59,10 +59,10 @@ const Step1Form = ({
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-transparent overflow-hidden ">
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto p-2 md:p-8 custom-scrollbar">
-        <div className="border shadow-lg rounded-lg px-6 py-4">
+      <div className="flex-1 overflow-y-auto p-2 md:p-8 custom-scrollbar ">
+        <div className="border shadow-lg rounded-lg px-6 py-4 bg-white">
           <div className="mb-5">
             <h3 className="text-xl font-bold text-gray-800">
               {flowType === "start-project"

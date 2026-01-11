@@ -15,8 +15,8 @@ const Step5Success = ({
   initialFormData,
 }: Step5SuccessProps) => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-8 bg-white ">
-      <div className="text-center max-w-md w-full border shadow-lg rounded-lg p-4">
+    <div className="w-full h-full flex items-center justify-center p-8 bg-transparent ">
+      <div className="text-center max-w-md w-full border shadow-lg rounded-lg p-4 bg-white">
         <div className="w-20 h-20 bg-red-100 text-red-500 rounded-full flex items-center justify-center mb-6 mx-auto">
           <FaCheckCircle size={40} />
         </div>
