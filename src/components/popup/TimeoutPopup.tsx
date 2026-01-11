@@ -56,14 +56,14 @@ const TimeoutPopup = () => {
   }, [isOpen, openPopup]);
 
   // Auto-close on Success
-  useEffect(() => {
-    if (step === 5) {
-      const timer = setTimeout(() => {
-        closePopup();
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [step, closePopup]);
+  // useEffect(() => {
+  //   if (step === 5) {
+  //     const timer = setTimeout(() => {
+  //       closePopup();
+  //     }, 5000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [step, closePopup]);
 
   const handleNext = () => {
     setStep((prev) => prev + 1);
@@ -97,7 +97,7 @@ const TimeoutPopup = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] md:h-[88vh] flex flex-col overflow-hidden relative"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
           >
             {/* Close Button */}
             <button
@@ -109,23 +109,23 @@ const TimeoutPopup = () => {
 
             {/* Header Section */}
             <div className="w-full text-center shrink-0 relative px-12 p-3">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Pause! Before You Press X, See What You Could Be Missing!
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-6">
+                Wait! Before You Leave, Let’s Validate Your App Idea.
               </h2>
             </div>
 
             {/* Content Container */}
-            <div className="flex flex-1 w-full overflow-hidden relative">
+            <div className="flex flex-1 w-full overflow-hidden relative mb-6">
               {/* Left Side Panel - Hidden on mobile, visible on medium+ screens */}
-              <div className="hidden md:block w-[40%]  h-auto mt-14">
+              <div className="hidden md:block w-[50%]  h-auto mt-14">
                 <LeftSidePanel />
               </div>
 
               {/* Right Side Content */}
-              <div className="w-full md:w-[60%] h-full flex flex-col relative bg-white">
+              <div className="w-full md:w-[50%] h-auto flex flex-col relative bg-white ">
                 {/* Mobile Header (optional, usually steps have their own headers) */}
 
-                <div className="flex-1 overflow-hidden h-full justify-center items-center">
+                <div className="flex-1 overflow-hidden h-[90%] justify-center items-center">
                   {step === 1 && (
                     <Step1Form
                       formData={initialFormData}
@@ -182,7 +182,7 @@ const TimeoutPopup = () => {
                 </div>
 
                 {/* rating  */}
-                <div className="mt-0 p-8 shrink-0">
+                <div className=" shrink-0 bg-transparent ">
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (

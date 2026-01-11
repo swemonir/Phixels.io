@@ -11,41 +11,41 @@ import { AnimatePresence, motion } from "framer-motion";
 const testimonials = [
   {
     name: "Sarah Jenkins",
-    role: "CTO - TechFlow Solutions",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    text: "Phixels.io transformed our digital presence. Their team's attention to detail and technical expertise is unmatched.",
-    rating: 5.0,
-    verified: true,
-  },
-  {
-    name: "David Chen",
-    role: "Founder - StartUp Inc",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "Incredible speed and quality. They delivered our MVP weeks ahead of schedule without cutting corners.",
-    rating: 5.0,
-    verified: true,
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Marketing Director - CreativePulse",
+    role: "CEO, FinTech Solutions (USA)",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    text: "The design team is phenomenal. They captured our brand voice perfectly and increased our conversion by 150%.",
+    text: "Phixels.io transformed our complex financial concept into a seamless mobile experience. Their strategic roadmap saved us months of development time. Highly recommended for scalable app solutions.",
     rating: 5.0,
     verified: true,
   },
   {
-    name: "Michael Chang",
-    role: "Product Manager - InnovateSoft",
-    image: "https://randomuser.me/api/portraits/men/85.jpg",
-    text: "Professional, responsive, and skilled. Working with Phixels feels like having an in-house expert team.",
+    name: "Ahmed Al-Fayed",
+    role: "CTO, RetailHub (UAE)",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    text: "Exceptional quality and communication. The team provided a transparent cost estimate upfront, and delivered the project exactly on the timeline promised. A true technical partner.",
     rating: 5.0,
     verified: true,
   },
   {
-    name: "Jessica Thompson",
-    role: "CEO - ApexSolutions",
-    image: "https://randomuser.me/api/portraits/women/24.jpg",
-    text: "We finally found a partner we can trust. Phixels handled our complex backend migration seamlessly.",
+    name: "James Miller",
+    role: "Founder, MedConnect (UK)",
+    image: "https://randomuser.me/api/portraits/men/68.jpg",
+    text: "We needed a secure and compliant healthcare app, and they delivered perfectly. Their risk assessment overview was an eye-opener and helped us avoid critical pitfalls early on.",
+    rating: 5.0,
+    verified: true,
+  },
+  {
+    name: "Anita Roy ",
+    role: "Product Manager, EdLearn Global (Singapore)",
+    image: "https://randomuser.me/api/portraits/women/85.jpg",
+    text: "I was impressed by their responsiveness. True to their word, they respond instantly. The UI/UX design they delivered for our learning platform is world-class.",
+    rating: 5.0,
+    verified: true,
+  },
+  {
+    name: "Michael Chen",
+    role: "Director of Operations, LogiMove (Canada)",
+    image: "https://randomuser.me/api/portraits/men/24.jpg",
+    text: "Finding a reliable global agency is hard, but Phixels made it easy. From the preliminary estimate to the final deployment, the process was professional and smooth. 5 stars!",
     rating: 5.0,
     verified: true,
   },
@@ -67,9 +67,9 @@ const LeftSidePanel = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <div className="w-full md:w-full bg-white p-8 flex flex-col relative h-full ">
+    <div className="w-full md:w-full bg-white p-10 flex flex-col relative h-full ">
       {/* Testimonial Carousel */}
-      <div className="flex items-center gap-3 mb-8 relative">
+      <div className="flex items-center gap-5 mb-8 relative">
         <button
           onClick={prevTestimonial}
           className="z-10 p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors shrink-0"
@@ -77,7 +77,7 @@ const LeftSidePanel = () => {
           <FaChevronLeft size={14} className="text-red-500" />
         </button>
 
-        <div className="flex-1 overflow-hidden relative min-h-[220px]">
+        <div className="flex-1 overflow-hidden relative min-h-55">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentTestimonial}
@@ -114,7 +114,7 @@ const LeftSidePanel = () => {
               <div className="flex items-center justify-center gap-4">
                 <div className="flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-full">
                   <span className="font-bold text-gray-900 text-xs">
-                    Clutch
+                    Fiverr
                   </span>
                   <span className="text-xs font-semibold">5.0</span>
                   <div className="flex gap-0.5">
@@ -180,7 +180,7 @@ const LeftSidePanel = () => {
           </p>
           <div className="space-y-1.5 text-xs text-gray-600">
             <div className="flex items-center gap-2">
-              <span className="text-purple-600">📞</span>
+              <span className="text-red-600">📞</span>
               <span>(303) 335-0405</span>
             </div>
             <div className="flex items-center gap-2">
@@ -200,7 +200,7 @@ const LeftSidePanel = () => {
       </div>
 
       {/* Trusted Brands */}
-      <div className=" mt-auto pt-6 ">
+      <div className=" mt-14 pt-6 ">
         <p className="text-center text-sm font-semibold text-gray-700 mb-4">
           We are Trusted by
         </p>

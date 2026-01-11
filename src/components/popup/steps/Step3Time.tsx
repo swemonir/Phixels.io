@@ -60,7 +60,7 @@ const Step3Time = ({
   return (
     <div className="w-full h-full  overflow-y-auto custom-scrollbar bg-white flex items-center justify-center">
       <div className="max-w-md mx-auto">
-        <div className="bg-white rounded-lg p-6 border shadow-sm">
+        <div className="bg-white  p-6 border  shadow-lg rounded-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4">
             {selectedDate
               ? selectedDate.toLocaleDateString("en-US", {

@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { FaCalendar, FaClock, FaFilePdf, FaTimes, FaStar } from "react-icons/fa";
+import {
+  FaCalendar,
+  FaClock,
+  FaFilePdf,
+  FaTimes,
+  FaStar,
+} from "react-icons/fa";
 import { InitialFormData } from "../types";
 
 interface Step4ConfirmProps {
@@ -57,10 +63,10 @@ const Step4Confirm = ({
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-white overflow-hidden ">
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
-        <div className="max-w-lg mx-auto">
+      <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar ">
+        <div className="max-w-lg mx-auto border shadow-lg rounded-lg px-6 py-4">
           {/* Booking details */}
           <div className="bg-gray-50 rounded-lg p-4 mb-6 mt-1 space-y-2 border">
             <div className="flex items-center gap-2 text-sm text-gray-700">
@@ -172,10 +178,11 @@ const Step4Confirm = ({
                     type="button"
                     key={budget}
                     onClick={() => setFormData({ ...formData, budget })}
-                    className={`border px-3 py-1.5 rounded-full transition-colors ${formData.budget === budget
-                      ? "bg-black text-white border-black"
-                      : "border-gray-300 hover:bg-black hover:text-white"
-                      }`}
+                    className={`border px-2 py-1.5 rounded-full transition-colors ${
+                      formData.budget === budget
+                        ? "bg-black text-white border-black"
+                        : "border-gray-300 hover:bg-black hover:text-white"
+                    }`}
                   >
                     {budget}
                   </button>
