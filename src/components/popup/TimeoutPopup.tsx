@@ -90,42 +90,42 @@ const TimeoutPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 md:p-4"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-gradient-to-l from-white/95 to-[#FEF4F4]/95 rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
+            className="bg-linear-to-l from-white/95 to-[#FEF4F4]/95 rounded-xl md:rounded-2xl shadow-2xl w-full max-w-7xl h-[90vh] md:h-[83vh] flex flex-col overflow-hidden relative"
           >
             {/* Close Button */}
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 z-20 p-2 bg-red-500 hover:bg-red-600 rounded-full transition-colors text-white hover:text-white"
+              className="absolute top-3 right-3 md:top-4 md:right-4 z-20 p-2 bg-red-500 hover:bg-red-600 rounded-full transition-colors text-white hover:text-white"
             >
               <FaTimes size={16} />
             </button>
 
             {/* Header Section */}
-            <div className="w-full text-center shrink-0 relative px-12 p-3">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-6">
+            <div className="w-full text-center shrink-0 relative px-4 md:px-12 p-3">
+              <h2 className="text-xl md:text-3xl font-bold text-gray-900 mt-6 md:mt-6">
                 Wait! Before You Leave, Let’s Validate Your App Idea.
               </h2>
             </div>
 
             {/* Content Container */}
-            <div className="flex flex-1 w-full overflow-hidden relative mb-6">
-              {/* Left Side Panel - Hidden on mobile, visible on medium+ screens */}
-              <div className="hidden md:block w-[50%]  h-auto mt-1">
+            <div className="flex flex-col md:flex-row flex-1 w-full overflow-y-auto md:overflow-hidden relative mb-6 custom-scrollbar">
+              {/* Left Side Panel - Visible on all screens, top on mobile */}
+              <div className="w-full md:w-[50%] h-auto mt-1 order-1 md:order-1">
                 <LeftSidePanel />
               </div>
 
               {/* Right Side Content */}
-              <div className="w-full md:w-[50%] h-auto flex flex-col relative bg-transparent ">
+              <div className="w-full md:w-[50%] h-auto flex flex-col relative bg-transparent order-2 md:order-2">
                 {/* Mobile Header (optional, usually steps have their own headers) */}
 
-                <div className="flex-1 overflow-hidden h-[90%] justify-center items-center bg-transparent">
+                <div className="flex-1 w-full h-auto md:h-[90%] md:overflow-hidden justify-center items-center bg-transparent">
                   {step === 1 && (
                     <Step1Form
                       formData={initialFormData}

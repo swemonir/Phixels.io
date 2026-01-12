@@ -73,7 +73,7 @@ const LeftSidePanel = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <div className="w-full md:w-full bg-transparent p-10 flex flex-col relative h-full">
+    <div className="w-full md:w-full bg-transparent p-4 md:p-10 flex flex-col relative h-full">
       {/* Testimonial Carousel */}
       <div className="flex items-center gap-5 relative">
         <button
@@ -110,7 +110,7 @@ const LeftSidePanel = () => {
                 "{testimonial.text}"
               </p>
 
-              <div className="flex items-center justify-between gap-4 ">
+              <div className="md:flex items-center justify-between gap-4 ">
                 <div className="text-center">
                   <h4 className="font-bold text-gray-900 text-base">
                     {testimonial.name}
@@ -210,11 +210,11 @@ const LeftSidePanel = () => {
           We are Trusted by
         </p>
 
-        <div className="flex items-center justify-between  mt-4">
-          <Image src={faca} alt="faca" className="h-6 w-auto" />
-          <Image src={data} alt="data" className="h-6 w-auto" />
-          <Image src={revo} alt="revo" className="h-6 w-auto" />
-          <Image src={global} alt="global" className="h-6 w-auto" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 items-center justify-items-center mt-6">
+          <Image src={faca} alt="faca" className="h-5 md:h-6 w-auto" />
+          <Image src={data} alt="data" className="h-5 md:h-6 w-auto" />
+          <Image src={revo} alt="revo" className="h-5 md:h-6 w-auto" />
+          <Image src={global} alt="global" className="h-5 md:h-6 w-auto" />
         </div>
       </div>
     </div>

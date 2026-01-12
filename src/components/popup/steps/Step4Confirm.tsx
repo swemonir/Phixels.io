@@ -63,9 +63,9 @@ const Step4Confirm = ({
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-transparent overflow-hidden ">
+    <div className="w-full md:h-full flex flex-col bg-transparent overflow-visible md:overflow-hidden ">
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar ">
+      <div className="w-full md:flex-1 overflow-visible md:overflow-y-auto p-4 md:p-8 custom-scrollbar ">
         <div className="max-w-lg mx-auto border shadow-lg rounded-lg px-6 py-4 bg-white">
           {/* Booking details */}
           <div className="bg-gray-50 rounded-lg p-4 mb-6 mt-1 space-y-2 border">
@@ -178,11 +178,10 @@ const Step4Confirm = ({
                     type="button"
                     key={budget}
                     onClick={() => setFormData({ ...formData, budget })}
-                    className={`border px-2 py-1.5 rounded-full transition-colors ${
-                      formData.budget === budget
+                    className={`border px-2 py-1.5 rounded-full transition-colors ${formData.budget === budget
                         ? "bg-black text-white border-black"
                         : "border-gray-300 hover:bg-black hover:text-white"
-                    }`}
+                      }`}
                   >
                     {budget}
                   </button>
