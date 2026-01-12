@@ -97,7 +97,7 @@ const TimeoutPopup = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
+            className="bg-gradient-to-l from-white/95 to-[#FEF4F4]/95 rounded-2xl shadow-2xl w-full max-w-7xl h-[85vh] md:h-[83vh] flex flex-col overflow-hidden relative"
           >
             {/* Close Button */}
             <button
@@ -117,7 +117,7 @@ const TimeoutPopup = () => {
             {/* Content Container */}
             <div className="flex flex-1 w-full overflow-hidden relative mb-6">
               {/* Left Side Panel - Hidden on mobile, visible on medium+ screens */}
-              <div className="hidden md:block w-[50%]  h-auto mt-14">
+              <div className="hidden md:block w-[50%]  h-auto mt-1">
                 <LeftSidePanel />
               </div>
 
@@ -190,13 +190,13 @@ const TimeoutPopup = () => {
                       ))}
                     </div>
                     <span className="text-gray-700">
-                      Rated <span className="font-bold text-blue-600">4.8</span>{" "}
-                      by <span className="font-bold text-blue-600">1000+</span>{" "}
+                      Rated <span className="font-bold text-blue-600">4.9</span>{" "}
+                      by <span className="font-bold text-blue-600">100+</span>{" "}
                       Happy Customers.
                     </span>
                   </div>
                   <p className="text-center text-xs text-gray-500 mt-1">
-                    <span className="font-bold text-blue-600">10+ Years</span>{" "}
+                    <span className="font-bold text-blue-600">8+ Years</span>{" "}
                     of Industry-experience.
                   </p>
                 </div>

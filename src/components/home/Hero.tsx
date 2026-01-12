@@ -3,10 +3,10 @@
 import Image, { StaticImageData } from "next/image";
 import { TbMailOpenedFilled, TbMessageFilled } from "react-icons/tb";
 
-import faca from "@/assets/trusted/faca.svg";
-import data from "@/assets/trusted/datadojo.svg";
-import revo from "@/assets/trusted/revo.svg";
-import global from "@/assets/trusted/global.svg";
+import faca from "@/assets/trusted/faca-white.svg";
+import data from "@/assets/trusted/datadojo-white.svg";
+import revo from "@/assets/trusted/revo-white.svg";
+import global from "@/assets/trusted/global-white.svg";
 
 import fiverr from "@/assets/review/fiverr.svg";
 import upwork from "@/assets/review/upwork.svg";
@@ -105,7 +105,7 @@ const Hero = () => {
                 <Image
                   src={faca}
                   alt="faca"
-                  className="h-8 w-auto mix-blend-screen"
+                  className="h-8 w-auto mix-blend-screen "
                 />
                 <Image
                   src={data}

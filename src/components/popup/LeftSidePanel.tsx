@@ -73,12 +73,12 @@ const LeftSidePanel = () => {
   const testimonial = testimonials[currentTestimonial];
 
   return (
-    <div className="w-full md:w-full bg-transparent p-10 flex flex-col relative h-full ">
+    <div className="w-full md:w-full bg-transparent p-10 flex flex-col relative h-full">
       {/* Testimonial Carousel */}
-      <div className="flex items-center gap-5 mb-8 relative">
+      <div className="flex items-center gap-5 relative">
         <button
           onClick={prevTestimonial}
-          className="z-10 p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors shrink-0"
+          className="z-10 p-2 rounded-full bg-white border-2 border-red-400 hover:bg-red-50 transition-colors shrink-0"
         >
           <FaChevronLeft size={14} className="text-red-500" />
         </button>
@@ -93,12 +93,12 @@ const LeftSidePanel = () => {
               transition={{ duration: 0.3 }}
               className="w-full flex flex-col items-center"
             >
-              <div className="text-center mb-4 relative">
+              <div className="text-center relative">
                 <div className="relative">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-3 border-4 border-gray-100 object-cover shadow-md"
+                    className="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-gray-100 object-cover shadow-md"
                   />
                   <div className="absolute bottom-3 right-[calc(50%-40px)] bg-white rounded-full p-1 shadow-sm">
                     <MdVerified className="text-blue-500" size={16} />
@@ -110,23 +110,25 @@ const LeftSidePanel = () => {
                 "{testimonial.text}"
               </p>
 
-              <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-base">
-                  {testimonial.name}
-                </h4>
-                <p className="text-xs text-gray-500 mb-3">{testimonial.role}</p>
-              </div>
+              <div className="flex items-center justify-between gap-4 ">
+                <div className="text-center">
+                  <h4 className="font-bold text-gray-900 text-base">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-xs text-gray-500 mb-3">
+                    {testimonial.role}
+                  </p>
+                </div>
 
-              <div className="flex items-center justify-center gap-4 ">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black">
-                  <span className="font-bold text-xs text-white">
-                    Fiverr
-                  </span>
-                  <span className="text-xs font-semibold">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} className="text-yellow-400" size={10} />
-                    ))}
+                <div className="flex items-center justify-center gap-4 ">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black">
+                    <span className="font-bold text-xs text-white">Fiverr</span>
+                    <span className="text-xs font-semibold">5.0</span>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar key={i} className="text-yellow-400" size={10} />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -136,14 +138,14 @@ const LeftSidePanel = () => {
 
         <button
           onClick={nextTestimonial}
-          className="z-10 p-2 rounded-full border-2 border-red-400 hover:bg-red-50 transition-colors shrink-0"
+          className="z-10 p-2 rounded-full bg-white border-2 border-red-400 hover:bg-red-50 transition-colors shrink-0"
         >
           <FaChevronRight size={14} className="text-red-500" />
         </button>
       </div>
 
       {/* Two Column Benefits */}
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-8 mt-4">
+      <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-8 mt-20 bg-white/40 p-3 rounded-lg border border-white">
         <div>
           <p className="font-semibold text-gray-800 text-sm mb-3 ">
             Unlock $1,000 Worth of Value 100% Free:
@@ -203,32 +205,16 @@ const LeftSidePanel = () => {
 
       {/* Trusted Brands */}
       {/* Trusted By */}
-      <div className="mt-5 bg-black px-6 pb-6 pt-4 rounded-2xl border-2 border-white/50 box-border">
-        <p className="text-lg font-medium text-white text-center ">
+      <div className="mt-14">
+        <p className="text-lg font-medium text-black text-center ">
           We are Trusted by
         </p>
 
         <div className="flex items-center justify-between  mt-4">
-          <Image
-            src={faca}
-            alt="faca"
-            className="h-6 w-auto mix-blend-screen"
-          />
-          <Image
-            src={data}
-            alt="data"
-            className="h-6 w-auto mix-blend-screen"
-          />
-          <Image
-            src={revo}
-            alt="revo"
-            className="h-6 w-auto mix-blend-screen"
-          />
-          <Image
-            src={global}
-            alt="global"
-            className="h-6 w-auto mix-blend-screen"
-          />
+          <Image src={faca} alt="faca" className="h-6 w-auto" />
+          <Image src={data} alt="data" className="h-6 w-auto" />
+          <Image src={revo} alt="revo" className="h-6 w-auto" />
+          <Image src={global} alt="global" className="h-6 w-auto" />
         </div>
       </div>
     </div>

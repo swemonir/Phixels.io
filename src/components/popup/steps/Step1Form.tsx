@@ -13,6 +13,11 @@ interface Step1FormProps {
   setPreviewUrl: (url: string | null) => void;
 }
 
+interface FileWithPreview {
+  file: File;
+  previewUrl: string | null;
+}
+
 const Step1Form = ({
   formData,
   setFormData,
@@ -24,6 +29,7 @@ const Step1Form = ({
   setPreviewUrl,
 }: Step1FormProps) => {
   const [errorMsg, setErrorMsg] = useState("");
+  const [selectedFiles, setSelectedFiles] = useState<FileWithPreview[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -32,31 +38,58 @@ const Step1Form = ({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setSelectedFile(file);
+    if (e.target.files && e.target.files.length > 0) {
+      const newFiles: FileWithPreview[] = Array.from(e.target.files).map(
+        (file) => ({
+          file,
+          previewUrl: file.type.startsWith("image/")
+            ? URL.createObjectURL(file)
+            : null,
+        })
+      );
+
+      setSelectedFiles((prev) => [...prev, ...newFiles]);
+
+      // Update formData with all file names
+      const allFileNames = [...selectedFiles, ...newFiles]
+        .map((f) => f.file.name)
+        .join(", ");
       setFormData({
         ...formData,
-        fileName: file.name,
+        fileName: allFileNames,
       });
 
-      if (file.type.startsWith("image/")) {
-        const url = URL.createObjectURL(file);
-        setPreviewUrl(url);
-      } else {
-        setPreviewUrl(null);
-      }
+      // Reset input value to allow selecting the same file again
+      e.target.value = "";
     }
   };
 
-  const handleRemoveFile = () => {
-    setSelectedFile(null);
-    setPreviewUrl(null);
+  const handleRemoveFile = (index: number) => {
+    const newFiles = selectedFiles.filter((_, i) => i !== index);
+
+    // Revoke the preview URL to free memory
+    if (selectedFiles[index].previewUrl) {
+      URL.revokeObjectURL(selectedFiles[index].previewUrl!);
+    }
+
+    setSelectedFiles(newFiles);
+
+    // Update formData with remaining file names
+    const allFileNames = newFiles.map((f) => f.file.name).join(", ");
     setFormData({
       ...formData,
-      fileName: "",
+      fileName: allFileNames,
     });
   };
+
+  // Cleanup preview URLs on unmount
+  useEffect(() => {
+    return () => {
+      selectedFiles.forEach(({ previewUrl }) => {
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+      });
+    };
+  }, [selectedFiles]);
 
   return (
     <div className="w-full h-full flex flex-col bg-transparent overflow-hidden ">
@@ -195,55 +228,67 @@ const Step1Form = ({
               />
             </div>
 
-            <div className="flex items-center gap-4">
-              <label className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-medium shrink-0">
-                <span>Add File</span>
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="hidden"
-                  accept="image/*,application/pdf"
-                />
-              </label>
+            <div className="w-full">
+              <div className="grid grid-cols-4 gap-3 max-h-[200px] overflow-y-auto scrollbar-hidden">
+                <label className="inline-flex items-center gap-2 px-4 py-1 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600 transition-colors text-sm font-medium shrink-0 h-[40px] justify-center">
+                  <span>Add Files</span>
+                  <input
+                    type="file"
+                    multiple
+                    onChange={handleFileChange}
+                    className="hidden"
+                    accept="image/*,application/pdf"
+                  />
+                </label>
 
-              {selectedFile ? (
-                <div className="flex items-center gap-3 bg-gray-50 p-2 rounded-lg border border-gray-200">
-                  {selectedFile.type.startsWith("image/") && previewUrl ? (
-                    <div className="w-10 h-10 rounded border overflow-hidden shrink-0">
-                      <img
-                        src={previewUrl}
-                        alt="preview"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ) : selectedFile.type === "application/pdf" ? (
-                    <div className="w-10 h-10 bg-red-50 rounded flex items-center justify-center text-red-500 shrink-0">
-                      <FaFilePdf size={20} />
-                    </div>
-                  ) : (
-                    <div className="w-10 h-10 bg-gray-100 rounded flex items-center justify-center text-gray-500 shrink-0">
-                      <FaStar size={20} />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium text-gray-700 truncate">
-                      {selectedFile.name}
-                    </p>
-                    <p className="text-[10px] text-gray-500">
-                      {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleRemoveFile}
-                    className="p-1 hover:bg-gray-200 rounded-full transition-colors text-gray-400 hover:text-red-500"
-                  >
-                    <FaTimes size={14} />
-                  </button>
-                </div>
-              ) : (
-                <span className="text-sm text-gray-600">No file chosen</span>
-              )}
+                {selectedFiles.length > 0 ? (
+                  <>
+                    {selectedFiles.map(({ file, previewUrl }, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 bg-gray-50 p-2 rounded-lg border border-gray-200 shrink-0 h-[40px]"
+                      >
+                        {file.type.startsWith("image/") && previewUrl ? (
+                          <div className="w-6 h-6 rounded border overflow-hidden shrink-0">
+                            <img
+                              src={previewUrl}
+                              alt="preview"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : file.type === "application/pdf" ? (
+                          <div className="w-6 h-6 bg-red-50 rounded flex items-center justify-center text-red-500 shrink-0">
+                            <FaFilePdf size={12} />
+                          </div>
+                        ) : (
+                          <div className="w-6 h-6 bg-gray-100 rounded flex items-center justify-center text-gray-500 shrink-0">
+                            <FaStar size={12} />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] font-medium text-gray-700 truncate">
+                            {file.name}
+                          </p>
+                          <p className="text-[8px] text-gray-500">
+                            {(file.size / 1024 / 1024).toFixed(2)} MB
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveFile(index)}
+                          className="p-0.5 hover:bg-gray-200 rounded-full transition-colors text-gray-400 hover:text-red-500 shrink-0"
+                        >
+                          <FaTimes size={10} />
+                        </button>
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <p className="text-sm text-gray-600 col-span-3 my-auto">
+                    No files chosen
+                  </p>
+                )}
+              </div>
             </div>
 
             <div className="flex items-center gap-3 pt-2">
