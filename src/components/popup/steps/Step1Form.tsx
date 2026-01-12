@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { FaStar, FaFilePdf, FaTimes } from "react-icons/fa";
 import { InitialFormData } from "../types";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 interface Step1FormProps {
   formData: InitialFormData;
@@ -92,9 +94,9 @@ const Step1Form = ({
   }, [selectedFiles]);
 
   return (
-    <div className="w-full h-full flex flex-col bg-transparent overflow-hidden ">
+    <div className="w-full md:h-full flex flex-col bg-transparent overflow-visible md:overflow-hidden ">
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto p-2 md:p-8 custom-scrollbar ">
+      <div className="w-full md:flex-1 overflow-visible md:overflow-y-auto p-2 md:p-8 custom-scrollbar ">
         <div className="border shadow-lg rounded-lg px-6 py-4 bg-white">
           <div className="mb-5">
             <h3 className="text-xl font-bold text-gray-800">
@@ -129,8 +131,8 @@ const Step1Form = ({
               />
             </div>
 
-            <div className="flex gap-4 justify-between items-center ">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+              <div className="flex-1 w-full">
                 <label className="block text-xs font-semibold text-gray-700 mb-1.5">
                   Email <span className="text-red-500">*</span>
                 </label>
@@ -150,33 +152,38 @@ const Step1Form = ({
                 />
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <label className="block text-xs font-semibold text-gray-700 mb-1.5">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
-                <div className="flex gap-2">
-                  <div className="border border-gray-300 rounded-lg p-2.5">
-                    <select className="text-base focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-black bg-gray-50">
-                      <option>🇧🇩 +880</option>
-                      <option>🇺🇸 +1</option>
-                      <option>🇬🇧 +44</option>
-                      <option>🇮🇳 +91</option>
-                    </select>
-                  </div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
+                <div className="project-phone-input">
+                  <PhoneInput
+                    international
+                    defaultCountry="BD"
                     value={formData.phone}
-                    onChange={(e) =>
+                    onChange={(value) =>
                       setFormData({
                         ...formData,
-                        phone: e.target.value,
+                        phone: value || "", // Handle undefined/null
                       })
                     }
-                    className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-all text-black bg-gray-50"
-                    placeholder="Enter Phone Number"
+                    className="flex-1 border border-gray-300 rounded-lg p-2.5 text-sm focus-within:ring-2 focus-within:ring-blue-400 focus-within:border-blue-400 outline-none transition-all text-black bg-gray-50"
                   />
+                  <style jsx global>{`
+                    .PhoneInputInput {
+                      background: transparent;
+                      border: none;
+                      outline: none;
+                      font-size: 0.875rem; /* text-sm */
+                      color: inherit;
+                      height: 100%;
+                    }
+                    .PhoneInputInput:focus {
+                      box-shadow: none;
+                      border: none;
+                      outline: none;
+                    }
+                  `}</style>
                 </div>
               </div>
             </div>
@@ -196,11 +203,10 @@ const Step1Form = ({
                     type="button"
                     key={budget}
                     onClick={() => setFormData({ ...formData, budget })}
-                    className={`border px-4 py-2 rounded-full transition-colors ${
-                      formData.budget === budget
-                        ? "bg-black text-white border-black"
-                        : "border-gray-300 hover:bg-black hover:text-white"
-                    }`}
+                    className={`border px-4 py-2 rounded-full transition-colors ${formData.budget === budget
+                      ? "bg-black text-white border-black"
+                      : "border-gray-300 hover:bg-black hover:text-white"
+                      }`}
                   >
                     {budget}
                   </button>
